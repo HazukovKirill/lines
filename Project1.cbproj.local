@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2019.09.20 22:33:46.990,=C:\Users\Кирилл\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2019.09.20 22:34:01.353,=C:\Users\Кирилл\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2019.09.20 22:34:54.021,C:\Users\Кирилл\Documents\GitHub\lines\Unit1.h=C:\Users\Кирилл\Documents\Embarcadero\Studio\Projects\Unit1.h</Transaction>
+    <Transaction>2019.09.20 22:34:54.021,C:\Users\Кирилл\Documents\GitHub\lines\Unit1.dfm=C:\Users\Кирилл\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2019.09.20 22:34:54.021,C:\Users\Кирилл\Documents\GitHub\lines\Unit1.cpp=C:\Users\Кирилл\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2019.09.20 22:34:57.245,C:\Users\Кирилл\Documents\GitHub\lines\Project1PCH1.h=C:\Users\Кирилл\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2019.09.20 22:34:59.881,C:\Users\Кирилл\Documents\GitHub\lines\Project1.cbproj=C:\Users\Кирилл\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>
