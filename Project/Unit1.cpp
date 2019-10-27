@@ -13,6 +13,7 @@ TForm1 *Form1;
 void __fastcall TForm1::PostClick(TObject* Sender){
 
 }
+
 //---------------------------------------------------------------------------
 void TForm1::InitCells(){
 	TImage* img;
@@ -36,6 +37,27 @@ __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner)
 {
 	srand(time(NULL));
 	_activeCell = nullptr;
+	InitPictures();
 	InitCells();
 }
 //---------------------------------------------------------------------------
+void TForm1::InitPictures(){
+	_actPctrs[0] = new TPicture();
+	_actPctrs[0]->LoadFromFile(cellWay);
+	_actPctrs[1] = new TPicture();
+	_actPctrs[1]->LoadFromFile(activeCellWay);
+
+	stringstream ss;
+	string str;
+	for (int i = 0; i < BALLSCOUNT; i++) {
+		ss << (i+1);
+		ss >> str;
+		ss.clear();
+		_ballPctrs[i] = new TPicture();
+		auto g = ("resources/" + str + ".png");
+		_ballPctrs[i]->LoadFromFile(g.c_str());
+	}
+}
+
+
+

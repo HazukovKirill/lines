@@ -13,6 +13,8 @@ class Cell{
 	bool _isActive;
 	int _crrntBall;
 	int _sizeCf;
+    TPicture* *_actPctrs;
+	TPicture* *_ballPctrs;
 public:
 	Cell(TImage*,int,int,int,int);
 	void SetPicture(TPicture*);
