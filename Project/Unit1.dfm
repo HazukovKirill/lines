@@ -47,5 +47,6 @@ object Form1: TForm1
     Font.Style = []
     ParentColor = False
     ParentFont = False
+    OnClick = nextStepClick
   end
 end

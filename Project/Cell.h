@@ -24,5 +24,8 @@ public:
 	void LoadBallPctrs(TPicture* *balls);
 	int GetI(){return _i;}
 	int GetJ(){return _j;}
+    void SetBall(int);
+	void SetBallSize(int);
+	int GetBallSize(){ return _sizeCf;};
 };
 #endif

@@ -27,3 +27,10 @@ void Cell::SetActive(bool a){
 	_image->Picture = _actPctrs[(int)_isActive];
 }
 
+void Cell::SetBall(int ball){
+
+}
+void Cell::SetBallSize(int k){
+
+}
+
