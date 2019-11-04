@@ -28,9 +28,23 @@ void Cell::SetActive(bool a){
 }
 
 void Cell::SetBall(int ball){
-
+ _crrntBall = ball;
+	if(_crrntBall < 0){
+		_ballImage->Picture = nullptr;
+		return;
+	}
+	_ballImage->Picture = _ballPctrs[_crrntBall];
+	int h = _ballImage->Height;
+	int w = _ballImage->Width;
 }
 void Cell::SetBallSize(int k){
-
+   //k - коэффициент, характеризующий размер шарика
+    _sizeCf = k;
+	int add = (ANIMITER-k)*22.5/ANIMITER;
+	int len = 45*k/ANIMITER;
+	_ballImage->Height = len;
+	_ballImage->Width = len;
+	_ballImage->Left = _x + add;
+	_ballImage->Top = _y + add;
 }
 
