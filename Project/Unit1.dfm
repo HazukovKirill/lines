@@ -49,4 +49,28 @@ object Form1: TForm1
     ParentFont = False
     OnClick = nextStepClick
   end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 760
+    Top = 8
+  end
+  object Timer2: TTimer
+    Enabled = False
+    OnTimer = Timer2Timer
+    Left = 760
+    Top = 56
+  end
+  object Timer3: TTimer
+    Enabled = False
+    OnTimer = Timer3Timer
+    Left = 760
+    Top = 104
+  end
+  object Timer4: TTimer
+    Enabled = False
+    OnTimer = Timer4Timer
+    Left = 760
+    Top = 152
+  end
 end

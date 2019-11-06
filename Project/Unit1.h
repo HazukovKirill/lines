@@ -7,6 +7,7 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Imaging.pngimage.hpp>
+#include <Vcl.ExtCtrls.hpp>
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -29,7 +30,15 @@ class TForm1 : public TForm
 __published:	// IDE-managed Components
 	TLabel *Label1;
 	TLabel *nextStep;
+	TTimer *Timer1;
+	TTimer *Timer2;
+	TTimer *Timer3;
+	TTimer *Timer4;
 	//TMenuItem *ItemMenuSaveGame;
+	void __fastcall Timer1Timer(TObject *Sender);
+	void __fastcall Timer2Timer(TObject *Sender);
+	void __fastcall Timer3Timer(TObject *Sender);
+	void __fastcall Timer4Timer(TObject *Sender);
 	void __fastcall nextStepClick(TObject *Sender);
 	void __fastcall NewGame(TObject *Sender);
 	void __fastcall ExitClick(TObject *Sender);
@@ -43,7 +52,11 @@ private:	// User declarations
 	TPicture* _ballPctrs[BALLSCOUNT];
     //--Animation--
     int _animCfSetBall;
+	int _animIndxBallWay;
+	int _animNBallWay;
+	vector<Cell*> _animDeleteCells;
 	vector<Cell*> _animSetCells;
+	vector<Cell*> _animWay;
 	vector<Cell*> _burst;
 	Cell* _targetBall;
 	//--Info--
@@ -61,6 +74,8 @@ public:		// User declarations
 	void InitNextBallImgs();
 	void GenNextBalls();
 	void ShowMessageByFile(string,string);
+	void BurstBalls();
+	void DeleteBall(int,int);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

@@ -11,9 +11,7 @@
 TForm1 *Form1;
 //---------------------------------------------------------------------------
 void __fastcall TForm1::PostClick(TObject* Sender){
-
 }
-
 //---------------------------------------------------------------------------
 void TForm1::InitCells(){
 	TImage* img;
@@ -134,6 +132,7 @@ void __fastcall TForm1::NewGame(TObject *Sender)
 	PutBalls();
 	nextStep->Enabled = true;
 	//ItemMenuSaveGame->Enabled = true; READIX pls FIX this *****
+	//there nothing to FIX, just implement button
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ExitClick(TObject *Sender)
@@ -149,7 +148,7 @@ void __fastcall TForm1::ExitClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 void TForm1::ShowMessageByFile(string mbname, string fileway){
-    ifstream in;
+	ifstream in;
 	in.open(fileway);
 	if(!in){
 		in.close();
@@ -164,7 +163,7 @@ void TForm1::ShowMessageByFile(string mbname, string fileway){
 	while(getline(in,bf)){
 	   ref += bf + "\n";
 	}
-    in.close();
+	in.close();
 	Application->MessageBox(
 		((UnicodeString)ref.c_str()).c_str(),
 		((UnicodeString)mbname.c_str()).c_str(),
@@ -182,3 +181,91 @@ void __fastcall TForm1::ItemMenuRefClick(TObject *Sender)
 	ShowMessageByFile("Справка", WAYTOREF);
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::Timer1Timer(TObject *Sender)
+{
+	int iter;
+	for(auto cell: _animSetCells){
+		iter = cell->GetBallSize();
+		if(iter == ANIMITER){
+			_animSetCells.erase(
+				remove(
+					_animSetCells.begin(),
+					_animSetCells.end(),
+					cell
+				),
+				_animSetCells.end()
+			);
+			continue;
+		}
+		cell->SetBallSize(++iter);
+	}
+	if(_animSetCells.size() != 0){
+		return;
+	}
+	Timer1->Enabled = false;
+	BurstBalls();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Timer2Timer(TObject *Sender)
+{
+	int iter;
+	for(auto cell: _animDeleteCells){
+		if(find(
+				_animSetCells.begin(),
+				_animSetCells.end(),
+				cell
+			) != _animSetCells.end()){
+			continue;
+		}
+		iter = cell->GetBallSize();
+		if(iter == -1){
+			cell->SetBall(-1);
+			_animDeleteCells.erase(
+				remove(
+					_animDeleteCells.begin(),
+					_animDeleteCells.end(),
+					cell
+				),
+				_animDeleteCells.end()
+			);
+			continue;
+		}
+		cell->SetBallSize(--iter);
+	}
+	if(_animDeleteCells.size() != 0){
+		return;
+	}
+	Timer2->Enabled = false;
+	BurstBalls();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Timer3Timer(TObject *Sender)
+{
+	if(Label1->Caption.ToInt() == _score){
+		Timer3->Enabled = false;
+		return;
+	}
+	Label1->Caption = Label1->Caption.ToInt() + 1;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::Timer4Timer(TObject *Sender)
+{
+	Cell* cur = _animWay[_animIndxBallWay++];
+	DeleteBall(cur->GetI(), cur->GetJ());
+	Cell* next = _animWay[_animIndxBallWay];
+	SetBall(next->GetI(), next->GetJ(), _animNBallWay, true);
+	if(_animIndxBallWay == _animWay.size() - 1){
+		_animWay.clear();
+		Timer4->Enabled = false;
+	}
+}
+//---------------------------------------------------------------------------
+void TForm1::BurstBalls(){
+	//TODO
+	//Handle balls from _burst
+}
+//---------------------------------------------------------------------------
+void TForm1::DeleteBall(int i, int j){
+	//TODO
+	//Delete Ball in (i;j) from field
+}
