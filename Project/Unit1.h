@@ -51,7 +51,8 @@ private:	// User declarations
     TPicture* _actPctrs[2];
 	TPicture* _ballPctrs[BALLSCOUNT];
     //--Animation--
-    int _animCfSetBall;
+	int _animCfSetBall;
+    int _animCfDeleteBall;
 	int _animIndxBallWay;
 	int _animNBallWay;
 	vector<Cell*> _animDeleteCells;
@@ -66,6 +67,7 @@ private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 	void __fastcall PostClick(TObject*);
+    bool GetWay(int,int,int,int);
 	void InitCells();
 	void InitPictures();
 	bool PutBalls();

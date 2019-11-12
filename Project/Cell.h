@@ -22,6 +22,7 @@ public:
 	void SetActive(bool a);
 	void LoadActPctrs(TPicture* *pics);
 	void LoadBallPctrs(TPicture* *balls);
+    int GetBall(){return _crrntBall;}
 	int GetI(){return _i;}
 	int GetJ(){return _j;}
     void SetBall(int);

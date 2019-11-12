@@ -11,6 +11,51 @@
 TForm1 *Form1;
 //---------------------------------------------------------------------------
 void __fastcall TForm1::PostClick(TObject* Sender){
+	if(Timer1->Enabled || Timer2->Enabled){
+        return;
+	}
+	int i, j;
+	TImage* img;
+	if(!(img = dynamic_cast<TImage*>(Sender))){
+        return;
+	}
+	i = img->Top / CELLSIZE;
+	j = img->Left / CELLSIZE;
+
+	if(_activeCell == nullptr){
+		_cells[i][j]->SetActive(true);
+		_activeCell = _cells[i][j];
+        return;
+	}
+
+	if(_activeCell == _cells[i][j]){
+		_cells[i][j]->SetActive(false);
+		_activeCell = nullptr;
+		return;
+	}
+
+	if(_activeCell->GetBall() < 0 || _cells[i][j]->GetBall() >= 0){
+		_activeCell->SetActive(false);
+		_cells[i][j]->SetActive(true);
+		_activeCell = _cells[i][j];
+		return;
+	}
+
+	int ball_i = _activeCell->GetI();
+	int ball_j = _activeCell->GetJ();
+	if(!GetWay(ball_i, ball_j, i, j)){
+        return;
+	}
+
+	int nball =_activeCell->GetBall();
+	_activeCell->SetActive(false);
+	_activeCell = nullptr;
+
+	_animNBallWay = nball;
+	Timer4->Enabled = true;
+	_animIndxBallWay = 0;
+
+	_targetBall = _cells[i][j];
 }
 //---------------------------------------------------------------------------
 void TForm1::InitCells(){
@@ -104,10 +149,10 @@ void TForm1::SetBall(int i, int j, int nball, bool target){
 	if(!target)
 		_burst.push_back(_cells[i][j]);
 	_cells[i][j]->SetBallSize(0);
-	//_freeCells.erase(
-	//	remove(_freeCells.begin(), _freeCells.end(), _cells[i][j]), _freeCells.end()
-	//);
-	//Timer1->Enabled = true; ALEXLIS pls FIX this *****
+	_freeCells.erase(
+		remove(_freeCells.begin(), _freeCells.end(), _cells[i][j]), _freeCells.end()
+	);
+	Timer1->Enabled = true;
 	_animCfSetBall = 1;
 }
 //---------------------------------------------------------------------------
@@ -260,12 +305,18 @@ void __fastcall TForm1::Timer4Timer(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
+void TForm1::DeleteBall(int i, int j){
+	_freeCells.push_back(_cells[i][j]);
+	_animDeleteCells.push_back(_cells[i][j]);
+	Timer2->Enabled = true;
+	_animCfDeleteBall = ANIMITER;
+}
+//---------------------------------------------------------------------------
 void TForm1::BurstBalls(){
 	//TODO
 	//Handle balls from _burst
 }
 //---------------------------------------------------------------------------
-void TForm1::DeleteBall(int i, int j){
+bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j){
 	//TODO
-	//Delete Ball in (i;j) from field
 }
