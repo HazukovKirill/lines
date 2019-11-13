@@ -8,12 +8,14 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Imaging.pngimage.hpp>
 #include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Menus.hpp>
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <sstream>
 #include <string>
 #include "Cell.h"
+#include <algorithm>
 #define CELLSIZE 68
 #define OFFSETX 12
 #define OFFSETY 11
@@ -34,6 +36,15 @@ __published:	// IDE-managed Components
 	TTimer *Timer2;
 	TTimer *Timer3;
 	TTimer *Timer4;
+	TMainMenu *MainMenu1;
+	TMenuItem *N1;
+	TMenuItem *N2;
+	TMenuItem *N3;
+	TMenuItem *N4;
+	TMenuItem *N5;
+	TMenuItem *N6;
+	TMenuItem *N7;
+	TMenuItem *N8;
 	//TMenuItem *ItemMenuSaveGame;
 	void __fastcall Timer1Timer(TObject *Sender);
 	void __fastcall Timer2Timer(TObject *Sender);
@@ -67,7 +78,11 @@ private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 	void __fastcall PostClick(TObject*);
-    bool GetWay(int,int,int,int);
+	bool GetWay(int,int,int,int);
+	int ControlLines(int,int, int);
+	void GameOver();
+	int Burst(int,int,int);
+	void BurstBalls();
 	void InitCells();
 	void InitPictures();
 	bool PutBalls();
@@ -76,7 +91,6 @@ public:		// User declarations
 	void InitNextBallImgs();
 	void GenNextBalls();
 	void ShowMessageByFile(string,string);
-	void BurstBalls();
 	void DeleteBall(int,int);
 };
 //---------------------------------------------------------------------------

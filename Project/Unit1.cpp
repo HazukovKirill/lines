@@ -58,6 +58,14 @@ void __fastcall TForm1::PostClick(TObject* Sender){
 	_targetBall = _cells[i][j];
 }
 //---------------------------------------------------------------------------
+int TForm1::Burst(int i, int j, int nball){
+	return ControlLines(i,j,nball);
+}
+//---------------------------------------------------------------------------
+int TForm1::ControlLines(int i, int j, int nball){
+//¬озвращает количество лупнутых шаров
+}
+//---------------------------------------------------------------------------
 void TForm1::InitCells(){
 	TImage* img;
 	for (int i = 0; i < 9; i++) {
@@ -141,6 +149,9 @@ bool TForm1::PutBalls(){
 	}
 	GenNextBalls();
 	return true;
+}
+//---------------------------------------------------------------------------
+void TForm1::GameOver(){
 }
 //---------------------------------------------------------------------------
 void TForm1::SetBall(int i, int j, int nball, bool target){
@@ -284,6 +295,40 @@ void __fastcall TForm1::Timer2Timer(TObject *Sender)
 	BurstBalls();
 }
 //---------------------------------------------------------------------------
+void TForm1::BurstBalls(){
+	if(Timer1->Enabled || Timer2->Enabled || Timer4->Enabled){
+		return;
+	}
+	if(_freeCells.size() == 0){
+		GameOver();
+        return;
+	}
+	int cnt = 0;
+	for(auto o:_burst){
+		cnt += ControlLines(o->GetI(), o->GetJ(), o->GetBall());
+	}
+
+	Timer3->Enabled = true;
+	_score += 2*cnt;
+	_burst.clear();
+
+    cnt = 0;
+	if(_targetBall == nullptr){
+        return;
+	}
+	cnt += 2*ControlLines(
+		_targetBall->GetI(),
+		_targetBall->GetJ(),
+		_targetBall->GetBall()
+	);
+    _targetBall = nullptr;
+	if(cnt != 0){
+        _score += cnt;
+		return;
+	}
+	PutBalls();
+}
+//---------------------------------------------------------------------------
 void __fastcall TForm1::Timer3Timer(TObject *Sender)
 {
 	if(Label1->Caption.ToInt() == _score){
@@ -312,11 +357,8 @@ void TForm1::DeleteBall(int i, int j){
 	_animCfDeleteBall = ANIMITER;
 }
 //---------------------------------------------------------------------------
-void TForm1::BurstBalls(){
-	//TODO
-	//Handle balls from _burst
-}
-//---------------------------------------------------------------------------
 bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j){
 	//TODO
 }
+//---------------------------------------------------------------------------
+

@@ -13,6 +13,7 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'MT Extra'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesigned
   PixelsPerInch = 96
@@ -72,5 +73,34 @@ object Form1: TForm1
     OnTimer = Timer4Timer
     Left = 760
     Top = 152
+  end
+  object MainMenu1: TMainMenu
+    Left = 16
+    Top = 16
+    object N1: TMenuItem
+      Caption = #1048#1075#1088#1072
+      object N2: TMenuItem
+        Caption = #1053#1086#1074#1072#1103' '#1080#1075#1088#1072
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object N4: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1080#1075#1088#1091
+        Enabled = False
+      end
+      object N5: TMenuItem
+        Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1080#1075#1088#1091
+      end
+    end
+    object N6: TMenuItem
+      Caption = #1055#1086#1084#1086#1097#1100
+    end
+    object N7: TMenuItem
+      Caption = #1057#1087#1088#1072#1074#1082#1072
+    end
+    object N8: TMenuItem
+      Caption = #1042#1099#1093#1086#1076
+    end
   end
 end
