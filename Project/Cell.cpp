@@ -11,6 +11,16 @@ Cell::Cell(TImage* img, int i, int j, int offx, int offy){
 	_crrntBall = -1;
 	_isActive = false;
 	this->_image = img;
+	_x = img->Left + offx;
+	_y = img->Top + offy;
+	_ballImage = new TImage(img->Parent);
+	_ballImage->Parent = img->Parent;
+	_ballImage->Left = img->Left + offx;
+	_ballImage->Top = img->Top + offy;
+	_ballImage->Enabled = false;
+	_ballImage->Transparent = true;
+	_ballImage->Stretch = true;
+	_ballImage->BringToFront();
 }
 void Cell::SetPicture(TPicture* pic){
 	this->_image->Picture = pic;

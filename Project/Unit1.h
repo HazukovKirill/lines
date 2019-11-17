@@ -40,7 +40,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N1;
 	TMenuItem *N2;
 	TMenuItem *N3;
-	TMenuItem *N4;
+	TMenuItem *ItemMenuSaveGame;
 	TMenuItem *N5;
 	TMenuItem *N6;
 	TMenuItem *N7;
@@ -80,6 +80,7 @@ public:		// User declarations
 	void __fastcall PostClick(TObject*);
 	bool GetWay(int,int,int,int);
 	int ControlLines(int,int, int);
+	int ControlLine(int, int, int, void(*f)(int&,int&,int));
 	void GameOver();
 	int Burst(int,int,int);
 	void BurstBalls();

@@ -64,6 +64,71 @@ int TForm1::Burst(int i, int j, int nball){
 //---------------------------------------------------------------------------
 int TForm1::ControlLines(int i, int j, int nball){
 //¬озвращает количество лупнутых шаров
+	int cnt = 0;
+	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
+		i += k;
+	});
+	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
+		i += k;
+		j += k;
+	});
+	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
+		j += k;
+	});
+	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
+		i += k;
+		j -= k;
+	});
+	if(cnt == 0){
+        return 0;
+	}
+	DeleteBall(i, j);
+    return cnt + 1;
+}
+//---------------------------------------------------------------------------
+int TForm1::ControlLine(int i, int j, int nball, void(*iter)(int&,int&,int)){
+//ѕроходитс€ по шарикам в линии, использу€ итерационную функцию
+//≈сли длина линии > 5 удал€ет все шарики на этой линии, кроме начального
+//¬озвращает количество лопнутых шариков, не включа€ начальный
+	int strt_i = i, strt_j = j;
+	int cnt = 0;
+	iter(i,j,1);
+    if(i >=0 && i <=8 && j >=0 && j <=8)
+	while(_cells[i][j]->GetBall() == nball){
+		cnt++;
+		iter(i,j,1);
+		if(i < 0 || i >8 || j < 0 || j >8){
+			break;
+		}
+	}
+	i = strt_i; j = strt_j;
+	iter(i,j,-1);
+    if(i >=0 && i <=8 && j >=0 && j <=8)
+	while(_cells[i][j]->GetBall() == nball){
+		cnt++;
+        iter(i,j,-1);
+        if(i < 0 || i >8 || j < 0 || j >8){
+			break;
+		}
+	}
+	//cnt - количество нужных шариков на линнии, не включа€ начальный
+	if(cnt < 4){
+		return 0;
+	}
+	//“еперь нужно удалить все шары
+	iter(i,j,1);//шаг вперед, т.к. необходимо начать с нужной клетки
+	while(_cells[i][j]->GetBall() == nball){
+		if( (i != strt_i || j != strt_j) &&
+			find(_burst.begin(), _burst.end(), _cells[i][j]) == _burst.end() )
+		{
+			DeleteBall(i, j);
+		}
+		iter(i,j,1);
+		if(i < 0 || i >8 || j < 0 || j >8){
+			break;
+		}
+	}
+    return cnt;
 }
 //---------------------------------------------------------------------------
 void TForm1::InitCells(){
@@ -187,8 +252,7 @@ void __fastcall TForm1::NewGame(TObject *Sender)
 	GenNextBalls();
 	PutBalls();
 	nextStep->Enabled = true;
-	//ItemMenuSaveGame->Enabled = true; READIX pls FIX this *****
-	//there nothing to FIX, just implement button
+	ItemMenuSaveGame->Enabled = true;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ExitClick(TObject *Sender)

@@ -4,8 +4,8 @@ object Form1: TForm1
   AlphaBlend = True
   BorderStyle = bsSingle
   Caption = 'Lines'
-  ClientHeight = 613
-  ClientWidth = 794
+  ClientHeight = 614
+  ClientWidth = 788
   Color = 4605510
   DoubleBuffered = True
   Font.Charset = DEFAULT_CHARSET
@@ -52,24 +52,28 @@ object Form1: TForm1
   end
   object Timer1: TTimer
     Enabled = False
+    Interval = 2
     OnTimer = Timer1Timer
     Left = 760
     Top = 8
   end
   object Timer2: TTimer
     Enabled = False
+    Interval = 2
     OnTimer = Timer2Timer
     Left = 760
     Top = 56
   end
   object Timer3: TTimer
     Enabled = False
+    Interval = 40
     OnTimer = Timer3Timer
     Left = 760
     Top = 104
   end
   object Timer4: TTimer
     Enabled = False
+    Interval = 30
     OnTimer = Timer4Timer
     Left = 760
     Top = 152
@@ -81,11 +85,12 @@ object Form1: TForm1
       Caption = #1048#1075#1088#1072
       object N2: TMenuItem
         Caption = #1053#1086#1074#1072#1103' '#1080#1075#1088#1072
+        OnClick = NewGame
       end
       object N3: TMenuItem
         Caption = '-'
       end
-      object N4: TMenuItem
+      object ItemMenuSaveGame: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1080#1075#1088#1091
         Enabled = False
       end
@@ -95,12 +100,15 @@ object Form1: TForm1
     end
     object N6: TMenuItem
       Caption = #1055#1086#1084#1086#1097#1100
+      OnClick = ItemMenuHelpClick
     end
     object N7: TMenuItem
       Caption = #1057#1087#1088#1072#1074#1082#1072
+      OnClick = ItemMenuRefClick
     end
     object N8: TMenuItem
       Caption = #1042#1099#1093#1086#1076
+      OnClick = ExitClick
     end
   end
 end
