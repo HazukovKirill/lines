@@ -63,7 +63,8 @@ private:	// User declarations
 	TPicture* _ballPctrs[BALLSCOUNT];
     //--Animation--
 	int _animCfSetBall;
-    int _animCfDeleteBall;
+	int _animCfDeleteBall;
+    int _wayField[9][9];
 	int _animIndxBallWay;
 	int _animNBallWay;
 	vector<Cell*> _animDeleteCells;

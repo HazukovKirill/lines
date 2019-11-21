@@ -422,7 +422,89 @@ void TForm1::DeleteBall(int i, int j){
 }
 //---------------------------------------------------------------------------
 bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j){
-	//TODO
+	for (int i = 0; i < 9; i++)
+	for (int j = 0; j < 9; j++)
+		_wayField[i][j] = -1;
+
+	_wayField[strt_i][strt_j] = 0;
+
+	int f1 = 0, f2 = 1;
+	vector<Cell*> v[2];
+	v[f1].push_back(_cells[strt_i][strt_j]);
+
+	auto iter = [this, &v, &f2](int i, int j, int k){
+		if(_wayField[i][j] == -1 && _cells[i][j]->GetBall() < 0) {
+			_wayField[i][j] = k + 1;
+			v[f2].push_back(_cells[i][j]);
+		}
+	};
+
+	bool flag = false;
+	int k;
+	while(v[f1].size() != 0){
+	   for(auto p: v[f1]){
+		  if(p->GetI() == fnsh_i && p->GetJ() == fnsh_j){
+			flag = true;
+			break;
+		  }
+
+		  k = _wayField[p->GetI()][p->GetJ()];
+		  if(p->GetJ() - 1 > -1)
+			 iter(p->GetI(), p->GetJ() - 1, k);
+
+		  if(p->GetJ() + 1 < 9)
+			 iter(p->GetI(), p->GetJ() + 1, k);
+
+		  if(p->GetI() - 1 > -1)
+			 iter(p->GetI() - 1, p->GetJ(), k);
+
+		  if(p->GetI() + 1 < 9)
+			 iter(p->GetI() + 1, p->GetJ(), k);
+
+	   }
+	   v[f1].clear();
+	   f2 = f1;
+	   f1 = 1 - f1;
+	}
+
+	if(_wayField[fnsh_i][fnsh_j] == -1){
+		return false;
+	}
+
+	Cell* cur = _cells[fnsh_i][fnsh_j];
+	k = _wayField[fnsh_i][fnsh_j];
+	_animWay.clear();
+
+	int i, j;
+	while(k != 0){
+		k--;
+		i = cur->GetI();
+		j = cur->GetJ();
+		_animWay.insert(_animWay.begin(), cur);
+		if(j - 1 > -1)
+		if(_wayField[i][j - 1] == k){
+			cur = _cells[i][j - 1];
+			continue;
+		}
+		if(j + 1 < 9)
+		if(_wayField[i][j + 1] == k){
+			cur = _cells[i][j + 1];
+			continue;
+		}
+		if(i - 1 > -1)
+		if(_wayField[i - 1][j] == k){
+			cur = _cells[i - 1][j];
+			continue;
+		}
+		if(i + 1 > -1)
+		if(_wayField[i + 1][j] == k){
+			cur = _cells[i + 1][j];
+			continue;
+		}
+	}
+	_animWay.insert(_animWay.begin(), cur);
+
+	return true;
 }
 //---------------------------------------------------------------------------
 
