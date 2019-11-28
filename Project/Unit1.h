@@ -52,6 +52,7 @@ __published:	// IDE-managed Components
 	void __fastcall Timer4Timer(TObject *Sender);
 	void __fastcall nextStepClick(TObject *Sender);
 	void __fastcall NewGame(TObject *Sender);
+    void __fastcall ItemMenuSaveGameClick(TObject *Sender);
 	void __fastcall ExitClick(TObject *Sender);
 	void __fastcall ItemMenuHelpClick(TObject *Sender);
 	void __fastcall ItemMenuRefClick(TObject *Sender);
@@ -91,7 +92,9 @@ public:		// User declarations
 	void SetBall(int, int, int, bool=false);
 	void PutBall(int);
 	void InitNextBallImgs();
+	void SaveGame(string);
 	void GenNextBalls();
+	bool CheckFile(string);
 	void ShowMessageByFile(string,string);
 	void DeleteBall(int,int);
 };

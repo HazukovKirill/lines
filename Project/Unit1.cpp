@@ -217,6 +217,16 @@ bool TForm1::PutBalls(){
 }
 //---------------------------------------------------------------------------
 void TForm1::GameOver(){
+	nextStep->Enabled = false;
+	ItemMenuSaveGame->Enabled = false;
+	stringstream ss;
+	ss << "Игра окончена.\nВаш счет: " <<_score ;
+	UnicodeString s = ss.str().c_str();
+	Application->MessageBox(
+		s.c_str(),
+		L"Игра окончена",
+		MB_OK
+	);
 }
 //---------------------------------------------------------------------------
 void TForm1::SetBall(int i, int j, int nball, bool target){
@@ -255,6 +265,62 @@ void __fastcall TForm1::NewGame(TObject *Sender)
 	ItemMenuSaveGame->Enabled = true;
 }
 //---------------------------------------------------------------------------
+void TForm1::SaveGame(string filename){
+	ofstream fout;
+	fout.open(filename, ios_base::out);
+	int key = 223;
+
+	for(int i = 0; i < 9; i++)
+	for(int j = 0; j < 9; j++)
+	{
+		fout<< (_cells[i][j]->GetBall()^key) << " ";
+	}
+	fout<<_score;
+	fout.close();
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::ItemMenuSaveGameClick(TObject *Sender)
+{
+	//Спросить не хочет ли он сохранить текущую игру
+	//или чтото в этом роде
+	UnicodeString  saveNameString = "";
+	bool Answer = InputQuery (
+		"Сохранение игры" ,
+		"Пожалуйста, введите название сохранения:" ,
+		saveNameString
+	);
+	if(!Answer){
+        return;
+	}
+	if(saveNameString == ""){
+		Application->MessageBox(
+			L"Пожалуйста, заполните поле.",
+			L"Ошибка",
+			MB_OK
+		);
+		ItemMenuSaveGameClick(Sender);
+		return;
+	}
+	string filename = AnsiString(saveNameString).c_str();
+	filename = "user\\" + filename + ".lns";
+
+	if(CheckFile(filename)){
+		int Answer = Application->MessageBox(
+			L"Сохранение с таким названием уже существует, хотите перезаписать?",
+			L"Предупреждение",
+			MB_OKCANCEL
+		);
+		if(Answer != IDOK)
+            return;
+	}
+	SaveGame(filename);
+	Application->MessageBox(
+		L"Игра успешно сохранена.",
+		L"Сообщение",
+		MB_OK
+	);
+}
+//---------------------------------------------------------------------------
 void __fastcall TForm1::ExitClick(TObject *Sender)
 {
 	int Answer = Application->MessageBox(
@@ -265,6 +331,9 @@ void __fastcall TForm1::ExitClick(TObject *Sender)
 
 	if(Answer == IDOK )
 		exit(0);
+}
+//---------------------------------------------------------------------------
+bool TForm1::CheckFile(string filename){
 }
 //---------------------------------------------------------------------------
 void TForm1::ShowMessageByFile(string mbname, string fileway){
