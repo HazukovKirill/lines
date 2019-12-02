@@ -52,6 +52,7 @@ __published:	// IDE-managed Components
 	void __fastcall Timer4Timer(TObject *Sender);
 	void __fastcall nextStepClick(TObject *Sender);
 	void __fastcall NewGame(TObject *Sender);
+	void __fastcall LoadGameClick(TObject *Sender);
     void __fastcall ItemMenuSaveGameClick(TObject *Sender);
 	void __fastcall ExitClick(TObject *Sender);
 	void __fastcall ItemMenuHelpClick(TObject *Sender);
@@ -97,6 +98,7 @@ public:		// User declarations
 	bool CheckFile(string);
 	void ShowMessageByFile(string,string);
 	void DeleteBall(int,int);
+	void LoadGame(string);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

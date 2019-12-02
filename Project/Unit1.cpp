@@ -576,4 +576,39 @@ bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j){
 	return true;
 }
 //---------------------------------------------------------------------------
+void TForm1::LoadGame(string filename){
+	ifstream in;
+	in.open(filename);
+	int key = 223;
+    _freeCells.clear();
+	for(int i = 0; i < 9; i++)
+	for(int j = 0; j < 9; j++)
+	{
+		int nball;
+		in>> nball;
+        nball = nball^key;
+		if( nball == -1 ){
+			_cells[i][j]->SetBall(-1);
+			_freeCells.push_back(_cells[i][j]);
+		}else{
+			SetBall(i, j, nball);
+        }
+	}
+	in >> _score;
+	in.close();
 
+    ItemMenuSaveGame->Enabled = true;
+	nextStep->Enabled = true;
+	_targetBall = nullptr;
+	_burst.clear();
+	Label1->Caption = _score;
+}
+//---------------------------------------------------------------------------
+void __fastcall TForm1::LoadGameClick(TObject *Sender)
+{
+	OpenTextFileDialog1->InitialDir = "user\\\\";
+	if(OpenTextFileDialog1->Execute()){
+		if (FileExists(OpenTextFileDialog1->FileName))
+			LoadGame(AnsiString(OpenTextFileDialog1->FileName).c_str());
+	}
+}
