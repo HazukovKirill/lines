@@ -9,6 +9,8 @@
 #include <Vcl.Imaging.pngimage.hpp>
 #include <Vcl.ExtCtrls.hpp>
 #include <Vcl.Menus.hpp>
+#include <Vcl.Dialogs.hpp>
+#include <Vcl.ExtDlgs.hpp>
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -45,6 +47,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N6;
 	TMenuItem *N7;
 	TMenuItem *N8;
+	TOpenTextFileDialog *OpenTextFileDialog1;
 	//TMenuItem *ItemMenuSaveGame;
 	void __fastcall Timer1Timer(TObject *Sender);
 	void __fastcall Timer2Timer(TObject *Sender);

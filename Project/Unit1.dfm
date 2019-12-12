@@ -111,4 +111,8 @@ object Form1: TForm1
       OnClick = ExitClick
     end
   end
+  object OpenTextFileDialog1: TOpenTextFileDialog
+    Left = 64
+    Top = 16
+  end
 end

@@ -10,7 +10,8 @@
 //---------------------------------------------------------------------------
 TForm1 *Form1;
 //---------------------------------------------------------------------------
-void __fastcall TForm1::PostClick(TObject* Sender){
+void __fastcall TForm1::PostClick(TObject* Sender)
+{
 	if(Timer1->Enabled || Timer2->Enabled){
         return;
 	}
@@ -58,11 +59,13 @@ void __fastcall TForm1::PostClick(TObject* Sender){
 	_targetBall = _cells[i][j];
 }
 //---------------------------------------------------------------------------
-int TForm1::Burst(int i, int j, int nball){
+int TForm1::Burst(int i, int j, int nball)
+{
 	return ControlLines(i,j,nball);
 }
 //---------------------------------------------------------------------------
-int TForm1::ControlLines(int i, int j, int nball){
+int TForm1::ControlLines(int i, int j, int nball)
+{
 //Возвращает количество лупнутых шаров
 	int cnt = 0;
 	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
@@ -86,7 +89,8 @@ int TForm1::ControlLines(int i, int j, int nball){
     return cnt + 1;
 }
 //---------------------------------------------------------------------------
-int TForm1::ControlLine(int i, int j, int nball, void(*iter)(int&,int&,int)){
+int TForm1::ControlLine(int i, int j, int nball, void(*iter)(int&,int&,int))
+{
 //Проходится по шарикам в линии, используя итерационную функцию
 //Если длина линии > 5 удаляет все шарики на этой линии, кроме начального
 //Возвращает количество лопнутых шариков, не включая начальный
@@ -131,7 +135,8 @@ int TForm1::ControlLine(int i, int j, int nball, void(*iter)(int&,int&,int)){
     return cnt;
 }
 //---------------------------------------------------------------------------
-void TForm1::InitCells(){
+void TForm1::InitCells()
+{
 	TImage* img;
 	for (int i = 0; i < 9; i++) {
 		for (int j = 0; j < 9; j++) {
@@ -158,7 +163,8 @@ __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner)
     InitNextBallImgs();
 }
 //---------------------------------------------------------------------------
-void TForm1::InitPictures(){
+void TForm1::InitPictures()
+{
 	_actPctrs[0] = new TPicture();
 	_actPctrs[0]->LoadFromFile(cellWay);
 	_actPctrs[1] = new TPicture();
@@ -176,7 +182,8 @@ void TForm1::InitPictures(){
 	}
 }
 //---------------------------------------------------------------------------
-void TForm1::InitNextBallImgs(){
+void TForm1::InitNextBallImgs()
+{
 	for (int i = 0; i < 3; i++) {
 		_nextBallsImgs[i] = new TImage(this);
 		_nextBallsImgs[i]->Parent = this;
@@ -190,14 +197,16 @@ void TForm1::InitNextBallImgs(){
 
 }
 //---------------------------------------------------------------------------
-void TForm1::GenNextBalls(){
+void TForm1::GenNextBalls()
+{
 	for (int i = 0; i < 3; i++) {
 		_nextBalls[i] = rand()%BALLSCOUNT;
 		_nextBallsImgs[i]->Picture = _ballPctrs[_nextBalls[i]];
 	}
 }
 //---------------------------------------------------------------------------
-void TForm1::PutBall(int nNextBall){
+void TForm1::PutBall(int nNextBall)
+{
 	int randCell = rand()%_freeCells.size();
 	int nball = _nextBalls[nNextBall];
 	SetBall(_freeCells[randCell]->GetI(),
@@ -206,7 +215,8 @@ void TForm1::PutBall(int nNextBall){
 	);
 }
 //---------------------------------------------------------------------------
-bool TForm1::PutBalls(){
+bool TForm1::PutBalls()
+{
 	for(int i = 0; i < 3; i++){
 		PutBall(i);
 		if(_freeCells.size() == 0)
@@ -216,7 +226,8 @@ bool TForm1::PutBalls(){
 	return true;
 }
 //---------------------------------------------------------------------------
-void TForm1::GameOver(){
+void TForm1::GameOver()
+{
 	nextStep->Enabled = false;
 	ItemMenuSaveGame->Enabled = false;
 	stringstream ss;
@@ -229,7 +240,8 @@ void TForm1::GameOver(){
 	);
 }
 //---------------------------------------------------------------------------
-void TForm1::SetBall(int i, int j, int nball, bool target){
+void TForm1::SetBall(int i, int j, int nball, bool target)
+{
 	_cells[i][j]->SetBall(nball);
 	_animSetCells.push_back(_cells[i][j]);
 	if(!target)
@@ -265,7 +277,8 @@ void __fastcall TForm1::NewGame(TObject *Sender)
 	ItemMenuSaveGame->Enabled = true;
 }
 //---------------------------------------------------------------------------
-void TForm1::SaveGame(string filename){
+void TForm1::SaveGame(string filename)
+{
 	ofstream fout;
 	fout.open(filename, ios_base::out);
 	int key = 223;
@@ -333,10 +346,8 @@ void __fastcall TForm1::ExitClick(TObject *Sender)
 		exit(0);
 }
 //---------------------------------------------------------------------------
-bool TForm1::CheckFile(string filename){
-}
-//---------------------------------------------------------------------------
-void TForm1::ShowMessageByFile(string mbname, string fileway){
+void TForm1::ShowMessageByFile(string mbname, string fileway)
+{
 	ifstream in;
 	in.open(fileway);
 	if(!in){
@@ -428,7 +439,8 @@ void __fastcall TForm1::Timer2Timer(TObject *Sender)
 	BurstBalls();
 }
 //---------------------------------------------------------------------------
-void TForm1::BurstBalls(){
+void TForm1::BurstBalls()
+{
 	if(Timer1->Enabled || Timer2->Enabled || Timer4->Enabled){
 		return;
 	}
@@ -483,14 +495,16 @@ void __fastcall TForm1::Timer4Timer(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-void TForm1::DeleteBall(int i, int j){
+void TForm1::DeleteBall(int i, int j)
+{
 	_freeCells.push_back(_cells[i][j]);
 	_animDeleteCells.push_back(_cells[i][j]);
 	Timer2->Enabled = true;
 	_animCfDeleteBall = ANIMITER;
 }
 //---------------------------------------------------------------------------
-bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j){
+bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j)
+{
 	for (int i = 0; i < 9; i++)
 	for (int j = 0; j < 9; j++)
 		_wayField[i][j] = -1;
@@ -576,7 +590,8 @@ bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j){
 	return true;
 }
 //---------------------------------------------------------------------------
-void TForm1::LoadGame(string filename){
+void TForm1::LoadGame(string filename)
+{
 	ifstream in;
 	in.open(filename);
 	int key = 223;
@@ -611,4 +626,17 @@ void __fastcall TForm1::LoadGameClick(TObject *Sender)
 		if (FileExists(OpenTextFileDialog1->FileName))
 			LoadGame(AnsiString(OpenTextFileDialog1->FileName).c_str());
 	}
+}
+//---------------------------------------------------------------------------
+bool TForm1::CheckFile(string filename)
+{
+//true - файл существует
+	ifstream file;
+	file.open(filename);
+	if(file.fail()){
+		file.close();
+		return false;
+	}
+	file.close();
+	return true;
 }
