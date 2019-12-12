@@ -12,12 +12,14 @@ TForm1 *Form1;
 //---------------------------------------------------------------------------
 void __fastcall TForm1::PostClick(TObject* Sender)
 {
-	if(Timer1->Enabled || Timer2->Enabled){
+	if(Timer1->Enabled || Timer2->Enabled)
+	{
         return;
 	}
 	int i, j;
 	TImage* img;
-	if(!(img = dynamic_cast<TImage*>(Sender))){
+	if(!(img = dynamic_cast<TImage*>(Sender)))
+	{
         return;
 	}
 	i = img->Top / CELLSIZE;
@@ -29,13 +31,15 @@ void __fastcall TForm1::PostClick(TObject* Sender)
         return;
 	}
 
-	if(_activeCell == _cells[i][j]){
+	if(_activeCell == _cells[i][j])
+	{
 		_cells[i][j]->SetActive(false);
 		_activeCell = nullptr;
 		return;
 	}
 
-	if(_activeCell->GetBall() < 0 || _cells[i][j]->GetBall() >= 0){
+	if(_activeCell->GetBall() < 0 || _cells[i][j]->GetBall() >= 0)
+	{
 		_activeCell->SetActive(false);
 		_cells[i][j]->SetActive(true);
 		_activeCell = _cells[i][j];
@@ -44,7 +48,8 @@ void __fastcall TForm1::PostClick(TObject* Sender)
 
 	int ball_i = _activeCell->GetI();
 	int ball_j = _activeCell->GetJ();
-	if(!GetWay(ball_i, ball_j, i, j)){
+	if(!GetWay(ball_i, ball_j, i, j))
+	{
         return;
 	}
 
@@ -68,17 +73,21 @@ int TForm1::ControlLines(int i, int j, int nball)
 {
 //¬озвращает количество лупнутых шаров
 	int cnt = 0;
-	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
+	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k)
+	{
 		i += k;
 	});
-	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
+	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k)
+	{
 		i += k;
 		j += k;
 	});
-	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
+	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k)
+	{
 		j += k;
 	});
-	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k){
+	cnt += ControlLine(i, j, nball, [](int& i, int& j, int k)
+	{
 		i += k;
 		j -= k;
 	});
@@ -384,9 +393,11 @@ void __fastcall TForm1::ItemMenuRefClick(TObject *Sender)
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
 	int iter;
-	for(auto cell: _animSetCells){
+	for(auto cell: _animSetCells)
+	{
 		iter = cell->GetBallSize();
-		if(iter == ANIMITER){
+		if(iter == ANIMITER)
+		{
 			_animSetCells.erase(
 				remove(
 					_animSetCells.begin(),
@@ -399,9 +410,12 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 		}
 		cell->SetBallSize(++iter);
 	}
-	if(_animSetCells.size() != 0){
+
+	if(_animSetCells.size() != 0)
+	{
 		return;
 	}
+
 	Timer1->Enabled = false;
 	BurstBalls();
 }
@@ -409,7 +423,8 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 void __fastcall TForm1::Timer2Timer(TObject *Sender)
 {
 	int iter;
-	for(auto cell: _animDeleteCells){
+	for(auto cell: _animDeleteCells)
+	{
 		if(find(
 				_animSetCells.begin(),
 				_animSetCells.end(),
@@ -432,7 +447,8 @@ void __fastcall TForm1::Timer2Timer(TObject *Sender)
 		}
 		cell->SetBallSize(--iter);
 	}
-	if(_animDeleteCells.size() != 0){
+	if(_animDeleteCells.size() != 0)
+	{
 		return;
 	}
 	Timer2->Enabled = false;
@@ -441,15 +457,18 @@ void __fastcall TForm1::Timer2Timer(TObject *Sender)
 //---------------------------------------------------------------------------
 void TForm1::BurstBalls()
 {
-	if(Timer1->Enabled || Timer2->Enabled || Timer4->Enabled){
+	if(Timer1->Enabled || Timer2->Enabled || Timer4->Enabled)
+	{
 		return;
 	}
-	if(_freeCells.size() == 0){
+	if(_freeCells.size() == 0)
+	{
 		GameOver();
         return;
 	}
 	int cnt = 0;
-	for(auto o:_burst){
+	for(auto o:_burst)
+	{
 		cnt += ControlLines(o->GetI(), o->GetJ(), o->GetBall());
 	}
 
@@ -458,7 +477,8 @@ void TForm1::BurstBalls()
 	_burst.clear();
 
     cnt = 0;
-	if(_targetBall == nullptr){
+	if(_targetBall == nullptr)
+	{
         return;
 	}
 	cnt += 2*ControlLines(
@@ -476,7 +496,8 @@ void TForm1::BurstBalls()
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer3Timer(TObject *Sender)
 {
-	if(Label1->Caption.ToInt() == _score){
+	if(Label1->Caption.ToInt() == _score)
+	{
 		Timer3->Enabled = false;
 		return;
 	}
@@ -516,7 +537,8 @@ bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j)
 	v[f1].push_back(_cells[strt_i][strt_j]);
 
 	auto iter = [this, &v, &f2](int i, int j, int k){
-		if(_wayField[i][j] == -1 && _cells[i][j]->GetBall() < 0) {
+		if(_wayField[i][j] == -1 && _cells[i][j]->GetBall() < 0)
+		{
 			_wayField[i][j] = k + 1;
 			v[f2].push_back(_cells[i][j]);
 		}
@@ -524,9 +546,12 @@ bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j)
 
 	bool flag = false;
 	int k;
-	while(v[f1].size() != 0){
-	   for(auto p: v[f1]){
-		  if(p->GetI() == fnsh_i && p->GetJ() == fnsh_j){
+	while(v[f1].size() != 0)
+	{
+	   for(auto p: v[f1])
+	   {
+		  if(p->GetI() == fnsh_i && p->GetJ() == fnsh_j)
+		  {
 			flag = true;
 			break;
 		  }
@@ -550,7 +575,8 @@ bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j)
 	   f1 = 1 - f1;
 	}
 
-	if(_wayField[fnsh_i][fnsh_j] == -1){
+	if(_wayField[fnsh_i][fnsh_j] == -1)
+	{
 		return false;
 	}
 
@@ -565,22 +591,26 @@ bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j)
 		j = cur->GetJ();
 		_animWay.insert(_animWay.begin(), cur);
 		if(j - 1 > -1)
-		if(_wayField[i][j - 1] == k){
+		if(_wayField[i][j - 1] == k)
+		{
 			cur = _cells[i][j - 1];
 			continue;
 		}
 		if(j + 1 < 9)
-		if(_wayField[i][j + 1] == k){
+		if(_wayField[i][j + 1] == k)
+		{
 			cur = _cells[i][j + 1];
 			continue;
 		}
 		if(i - 1 > -1)
-		if(_wayField[i - 1][j] == k){
+		if(_wayField[i - 1][j] == k)
+		{
 			cur = _cells[i - 1][j];
 			continue;
 		}
 		if(i + 1 > -1)
-		if(_wayField[i + 1][j] == k){
+		if(_wayField[i + 1][j] == k)
+		{
 			cur = _cells[i + 1][j];
 			continue;
 		}

@@ -4,7 +4,7 @@ object Form1: TForm1
   AlphaBlend = True
   BorderStyle = bsSingle
   Caption = 'Lines'
-  ClientHeight = 574
+  ClientHeight = 620
   ClientWidth = 788
   Color = 4605510
   DoubleBuffered = True

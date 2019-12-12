@@ -6,7 +6,8 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
-Cell::Cell(TImage* img, int i, int j, int offx, int offy){
+Cell::Cell(TImage* img, int i, int j, int offx, int offy)
+{
 	_i = i; _j = j;
 	_crrntBall = -1;
 	_isActive = false;
@@ -22,24 +23,30 @@ Cell::Cell(TImage* img, int i, int j, int offx, int offy){
 	_ballImage->Stretch = true;
 	_ballImage->BringToFront();
 }
-void Cell::SetPicture(TPicture* pic){
+void Cell::SetPicture(TPicture* pic)
+{
 	this->_image->Picture = pic;
 }
-void Cell::LoadActPctrs(TPicture* *pics){
+void Cell::LoadActPctrs(TPicture* *pics)
+{
 	_actPctrs = pics;
 }
-void Cell::LoadBallPctrs(TPicture* *balls){
+void Cell::LoadBallPctrs(TPicture* *balls)
+{
 	_ballPctrs = balls;
 }
 
-void Cell::SetActive(bool a){
+void Cell::SetActive(bool a)
+{
 	_isActive = a;
 	_image->Picture = _actPctrs[(int)_isActive];
 }
 
-void Cell::SetBall(int ball){
+void Cell::SetBall(int ball)
+{
  _crrntBall = ball;
-	if(_crrntBall < 0){
+	if(_crrntBall < 0)
+	{
 		_ballImage->Picture = nullptr;
 		return;
 	}
