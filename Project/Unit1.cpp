@@ -69,6 +69,17 @@ int TForm1::Burst(int i, int j, int nball)
 	return ControlLines(i,j,nball);
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает удаление шаров по всем линиям
+	\param i i-ая координата шарика
+	\param j j-ая координата шарика
+	\param nball Порядковый номер цвета шарика
+	\return Количество удаленных шаров
+
+	Вызывает обработчики \c ControlLine() для каждой линии
+	в соответствии с правилами игры, суммирует и возвращает
+	количество удаленных шаров
+*/
 int TForm1::ControlLines(int i, int j, int nball)
 {
 //Возвращает количество лупнутых шаров
@@ -98,6 +109,19 @@ int TForm1::ControlLines(int i, int j, int nball)
     return cnt + 1;
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Удаляет шары в линии с цветом
+	\param i i-ая координата шарика
+	\param j j-ая координата шарика
+	\param nball Порядковый номер цвета шарика
+	\param iter Функция итерации по линии проверки
+	\return Количество удаленных шаров
+
+	Обрабатывает удаление шариков в одной линии,
+	заданной с помощью функции \c iter() .
+	Если необходимое количество шариков того же цвета
+	в линии не было найдено возвращает \c 0
+*/
 int TForm1::ControlLine(int i, int j, int nball, void(*iter)(int&,int&,int))
 {
 //Проходится по шарикам в линии, используя итерационную функцию
@@ -440,6 +464,12 @@ void __fastcall TForm1::ItemMenuRefClick(TObject *Sender)
 	ShowMessageByFile("Справка", WAYTOREF);
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает итерацию таймера анимации
+	\param Sender Объект таймера
+
+	Обновляет размеры шариков, находящихся в анимации появления
+*/
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
 	int iter;
@@ -470,6 +500,12 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 	BurstBalls();
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает итерацию таймера удаления шариков
+	\param Sender - Объект таймера
+
+	Обновляет размеры шариков, находящихся в анимации удаления
+*/
 void __fastcall TForm1::Timer2Timer(TObject *Sender)
 {
 	int iter;
@@ -552,6 +588,12 @@ void TForm1::BurstBalls()
 	PutBalls();
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает итерацию таймера анимации очков
+	\param Sender Объект таймера
+
+	Обновляет количство очков
+*/
 void __fastcall TForm1::Timer3Timer(TObject *Sender)
 {
 	if(Label1->Caption.ToInt() == _score)
@@ -562,6 +604,13 @@ void __fastcall TForm1::Timer3Timer(TObject *Sender)
 	Label1->Caption = Label1->Caption.ToInt() + 1;
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает итерацию таймера анимации передвижения шарика
+	\param Sender Объект таймера
+
+	Обновляет размеры псевда-шариков, используемые для
+	демонстрации перемещения основного шарика
+*/
 void __fastcall TForm1::Timer4Timer(TObject *Sender)
 {
 	Cell* cur = _animWay[_animIndxBallWay++];
@@ -678,6 +727,10 @@ bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j)
 	return true;
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Загружает игру
+	\param filename Имя файла с сохраненной игрой
+*/
 void TForm1::LoadGame(string filename)
 {
 	ifstream in;
@@ -707,6 +760,12 @@ void TForm1::LoadGame(string filename)
 	Label1->Caption = _score;
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает нажатие по элементу меню "Загрузка игры"
+	\param Sender Объект элемента меню
+
+	Загружает игру, используя функцию \c LoadGame()
+*/
 void __fastcall TForm1::LoadGameClick(TObject *Sender)
 {
 	OpenTextFileDialog1->InitialDir = "user\\\\";

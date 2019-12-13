@@ -23,19 +23,33 @@ Cell::Cell(TImage* img, int i, int j, int offx, int offy)
 	_ballImage->Stretch = true;
 	_ballImage->BringToFront();
 }
+/*!
+	\brief Сеттер для картинки клетки
+	\param pic Картинка
+*/
 void Cell::SetPicture(TPicture* pic)
 {
 	this->_image->Picture = pic;
 }
+/*!
+	\brief Устанавливает массив анимаций шарика для клетки
+	\param pics массив картинок
+*/
 void Cell::LoadActPctrs(TPicture* *pics)
 {
 	_actPctrs = pics;
 }
+/*!
+	\brief Загружает изображения шариков
+	\param  balls массив изображжений
+*/
 void Cell::LoadBallPctrs(TPicture* *balls)
 {
 	_ballPctrs = balls;
 }
-
+/*!
+	\brief Устанавливает активность клетки
+*/
 void Cell::SetActive(bool a)
 {
 	_isActive = a;
