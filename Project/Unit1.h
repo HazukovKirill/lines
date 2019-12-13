@@ -75,26 +75,26 @@ __published:	// IDE-managed Components
 	void __fastcall ItemMenuHelpClick(TObject *Sender);
 	void __fastcall ItemMenuRefClick(TObject *Sender);
 private:	// User declarations
-	Cell* _cells[9][9];
-	Cell* _activeCell;
-	vector<Cell*> _freeCells;
-    TPicture* _actPctrs[2];
-	TPicture* _ballPctrs[BALLSCOUNT];
+	Cell* _cells[9][9]; /**< Массив клеток */
+	Cell* _activeCell; /// Указатель на активную клетку.
+	vector<Cell*> _freeCells; /// Массив свободных клеток.
+    TPicture* _actPctrs[2]; /// Массив изображений состояний клетки.
+	TPicture* _ballPctrs[BALLSCOUNT]; /// Массив уникальных изображений шариков.
     //--Animation--
-	int _animCfSetBall;
-	int _animCfDeleteBall;
-    int _wayField[9][9];
-	int _animIndxBallWay;
-	int _animNBallWay;
-	vector<Cell*> _animDeleteCells;
-	vector<Cell*> _animSetCells;
-	vector<Cell*> _animWay;
-	vector<Cell*> _burst;
-	Cell* _targetBall;
+	int _animCfSetBall; /// Текущий коэффициент анимации появления шариков.
+	int _animCfDeleteBall; /// Текущий коэффициент анимации удаления шариков.
+    int _wayField[9][9]; /// Массив для хранения пути между клетками.
+	int _animIndxBallWay; /// Индекс анимации перемещения шарика.
+	int _animNBallWay; /// Цвет шарика анимации перемещения.
+	vector<Cell*> _animDeleteCells; /// Вектор клеток для анимации удаления шариков.
+	vector<Cell*> _animSetCells; /// Вектор клеток для анимации появления шариков.
+	vector<Cell*> _animWay; /// Вектор клеток составляющих путь шарика.
+	vector<Cell*> _burst; /// Вектор клеток для обработки лопанья.
+	Cell* _targetBall; /// Выбранная клетка.
 	//--Info--
-	int _score;
-    int _nextBalls[3];
-    TImage* _nextBallsImgs[3];
+	int _score; /// Очки пользователя.
+    int _nextBalls[3]; /// Массив трех шариков.
+    TImage* _nextBallsImgs[3]; /// Массив изображений трех шариков.
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
 	void __fastcall PostClick(TObject*);

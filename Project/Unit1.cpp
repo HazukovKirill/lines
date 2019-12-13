@@ -10,6 +10,14 @@
 //---------------------------------------------------------------------------
 TForm1 *Form1;
 //---------------------------------------------------------------------------
+/*!
+	\brief Функция для обработки клика по клетке
+	\param Sender - Объект нажатой клетки
+	\author
+
+	Находит сценарий, согласно которому произошло нажатие
+	и обрабатывает его
+*/
 void __fastcall TForm1::PostClick(TObject* Sender)
 {
 	if(Timer1->Enabled || Timer2->Enabled)
@@ -221,6 +229,9 @@ void TForm1::InitPictures()
 	}
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Инициализирует массив трех шариков
+*/
 void TForm1::InitNextBallImgs()
 {
 	for (int i = 0; i < 3; i++) {
@@ -236,6 +247,12 @@ void TForm1::InitNextBallImgs()
 
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Генерирует очередные три шарика
+
+	Случайным образом выбирает три номера
+	шариков, используя \c BALLSCOUNT
+*/
 void TForm1::GenNextBalls()
 {
 	for (int i = 0; i < 3; i++) {
@@ -244,6 +261,12 @@ void TForm1::GenNextBalls()
 	}
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Выбирает клетку для расположения нового щарика
+
+	Случайно выбирает свободную клетку на поле
+	для расположения одного из трех шариков
+*/
 void TForm1::PutBall(int nNextBall)
 {
 	int randCell = rand()%_freeCells.size();
@@ -254,6 +277,15 @@ void TForm1::PutBall(int nNextBall)
 	);
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Распологает три шарика на поле
+	\return Удалось ли разместить все три шарика
+
+	Распологает шарики с использованием
+	функции \c PutBall() .
+	Возвращает \c false если не осталось
+	места для размещения, \c true - в случае успеха
+*/
 bool TForm1::PutBalls()
 {
 	for(int i = 0; i < 3; i++){
@@ -285,6 +317,16 @@ void TForm1::GameOver()
 	);
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Устанавливает шарик в указанную позицию
+	\param i i-ая координата шарика
+	\param j j-ая координата шарика
+	\param nball Порядковый номер цвета шарика
+	\param target Следует ли обрабатывать шарик на удаление
+
+	Распологает шарик с цветом \c ball в позицию \c i,j и
+	запускает таймер анимации.
+*/
 void TForm1::SetBall(int i, int j, int nball, bool target)
 {
 	_cells[i][j]->SetBall(nball);
@@ -299,6 +341,13 @@ void TForm1::SetBall(int i, int j, int nball, bool target)
 	_animCfSetBall = 1;
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает пропуск хода
+	\param Sender Объект кнопки пропуска хода
+
+	Распологает шарик с цветом \c ball в позицию \c i,j и
+	запускает таймер анимации.
+*/
 void __fastcall TForm1::nextStepClick(TObject *Sender)
 {
     PutBalls();
@@ -417,6 +466,11 @@ void __fastcall TForm1::ExitClick(TObject *Sender)
 		exit(0);
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Выводит информацию из файла в MessageBox
+	\param mbname - Заголовок окна
+	\param fileway - Путь к файлу
+*/
 void TForm1::ShowMessageByFile(string mbname, string fileway)
 {
 	ifstream in;
@@ -623,6 +677,11 @@ void __fastcall TForm1::Timer4Timer(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Удаляет шарик с координатами \c i,j
+	\param i i-ая координата шарика
+	\param j j-ая координата шарика
+*/
 void TForm1::DeleteBall(int i, int j)
 {
 	_freeCells.push_back(_cells[i][j]);
@@ -631,6 +690,17 @@ void TForm1::DeleteBall(int i, int j)
 	_animCfDeleteBall = ANIMITER;
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Вычисляет путь от первой клетки до второй
+	\param i i-ая координата шарика
+	\param j j-ая координата шарика
+	\return \c true если путь был найден,
+	\c false - в противном случае
+
+	Вычисляет путь используя алгоритм Ли от клетки
+	\c strt_i,strt_j до клетки \c fnsh_i,fnsh_j
+	и сохраняет его в \c this->_way
+*/
 bool TForm1::GetWay(int strt_i, int strt_j, int fnsh_i, int fnsh_j)
 {
 	for (int i = 0; i < 9; i++)
@@ -775,6 +845,12 @@ void __fastcall TForm1::LoadGameClick(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Проверяет существование файла
+	\param filename Имя файла
+	\return \c true если файл существует,
+	\c false - в противном случае
+*/
 bool TForm1::CheckFile(string filename)
 {
 //true - файл существует
