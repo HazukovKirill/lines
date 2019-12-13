@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['_5factivecell_105',['_activeCell',['../class_t_form1.html#ae5f599a254886b72c91f3885aad9e31d',1,'TForm1']]],
+  ['_5factpctrs_106',['_actPctrs',['../class_cell.html#ae5034168494d16837d83e512282e5e8e',1,'Cell::_actPctrs()'],['../class_t_form1.html#a3ed497af26ea809073047e2b035d1a05',1,'TForm1::_actPctrs()']]],
+  ['_5fanimcfdeleteball_107',['_animCfDeleteBall',['../class_t_form1.html#a968fa89296cb7c7d1bfb5cb1fbf8b660',1,'TForm1']]],
+  ['_5fanimcfsetball_108',['_animCfSetBall',['../class_t_form1.html#a00a8c29eee94be4668aa559ee8152172',1,'TForm1']]],
+  ['_5fanimdeletecells_109',['_animDeleteCells',['../class_t_form1.html#a5cb95725e5545ff7c147994ea10a0852',1,'TForm1']]],
+  ['_5fanimindxballway_110',['_animIndxBallWay',['../class_t_form1.html#a275c5185f78bf8103fec7dde77fe29e4',1,'TForm1']]],
+  ['_5fanimnballway_111',['_animNBallWay',['../class_t_form1.html#a1da5f832e56795d580e9181e38219573',1,'TForm1']]],
+  ['_5fanimsetcells_112',['_animSetCells',['../class_t_form1.html#a1d94b7d7962385c22ec68dc8e911738f',1,'TForm1']]],
+  ['_5fanimway_113',['_animWay',['../class_t_form1.html#a71be9456c7c4045493c1bcab52c5c0cb',1,'TForm1']]],
+  ['_5fballimage_114',['_ballImage',['../class_cell.html#a901993212dd8ac2a3aaa4b594326ed72',1,'Cell']]],
+  ['_5fballpctrs_115',['_ballPctrs',['../class_cell.html#a6f2b507c72b256ffb8414b2dadb86e9e',1,'Cell::_ballPctrs()'],['../class_t_form1.html#aaf0108a6427f4c9bb38834d1d1683c3a',1,'TForm1::_ballPctrs()']]],
+  ['_5fburst_116',['_burst',['../class_t_form1.html#a6372b9a6854164954f758bffe80fd3b6',1,'TForm1']]],
+  ['_5fcrrntball_117',['_crrntBall',['../class_cell.html#a54484a3d00fb8f8bff44ea686c54e9af',1,'Cell']]],
+  ['_5ffreecells_118',['_freeCells',['../class_t_form1.html#ac9f22c1648e179b226667297286dd63d',1,'TForm1']]],
+  ['_5fimage_119',['_image',['../class_cell.html#a5fb10dcde101d6990d2c9126fd8fcf83',1,'Cell']]],
+  ['_5fisactive_120',['_isActive',['../class_cell.html#a56ed83174ed4f9415c8e4e5e24a20554',1,'Cell']]],
+  ['_5fnextballs_121',['_nextBalls',['../class_t_form1.html#ae0b347bb26bb6584453a62f336ced35f',1,'TForm1']]],
+  ['_5fnextballsimgs_122',['_nextBallsImgs',['../class_t_form1.html#a09daebda1ca63ad617da04cb7cded8b8',1,'TForm1']]],
+  ['_5fscore_123',['_score',['../class_t_form1.html#a7f53886cb5d2454e63f2d737535dea5f',1,'TForm1']]],
+  ['_5fsizecf_124',['_sizeCf',['../class_cell.html#a29411678fa84df1fb27378cb5fdc8428',1,'Cell']]],
+  ['_5ftargetball_125',['_targetBall',['../class_t_form1.html#a69293de6dc1381db6677d0bbcfc590e8',1,'TForm1']]],
+  ['_5fwayfield_126',['_wayField',['../class_t_form1.html#a9590d600a3f622d375fb85d596dc3d3d',1,'TForm1']]],
+  ['_5fx_127',['_x',['../class_cell.html#a321e9c31bd8e4e81918afb344c3f88d4',1,'Cell']]]
+];

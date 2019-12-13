@@ -1,0 +1,554 @@
+\hypertarget{class_t_form1}{}\doxysection{T\+Form1 Class Reference}
+\label{class_t_form1}\index{TForm1@{TForm1}}
+
+
+Inherits T\+Form.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_abc9c59c8c54a39ff8b9a8b1a8facdfde}{Timer1\+Timer}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает итерацию таймера анимации \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_aafd6d5e8db4a51ca57487044dcc26f2a}{Timer2\+Timer}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает итерацию таймера удаления шариков \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_a2b394f40557b5ab7ffdd22d39f11a815}{Timer3\+Timer}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает итерацию таймера анимации очков \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_a7e9f704b0b05bde9998d61d2663103d0}{Timer4\+Timer}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает итерацию таймера анимации передвижения шарика \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_afc8c224b7e3c48487d5ea189cd20828d}{next\+Step\+Click}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает пропуск хода \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_a4cd479e6c020950cc09054c8653a5620}{New\+Game}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Запускает процесс игры \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_a2d1111fe1c7f5121f43e8ead18d67231}{Load\+Game\+Click}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает нажатие по элементу меню \char`\"{}Загрузка игры\char`\"{}. \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_a32eb5462dbe91dadb5acc1f40649aa2a}{Item\+Menu\+Save\+Game\+Click}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Орабатывает нажатие по элементу меню \char`\"{}сохранение игры\char`\"{}. \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_aaf1fe38a0cc2b3e0eed5673cd2e8a667}{Exit\+Click}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает нажатие по элементу меню \char`\"{}Выход\char`\"{}. \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_a693913a9b2d4be242814dbefe8d91423}{Item\+Menu\+Help\+Click}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает нажатие по элементу меню \char`\"{}Помощь\char`\"{}. \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_a6f7006c9eb3b1cb2cfd428c149ad90bc}{Item\+Menu\+Ref\+Click}} (T\+Object $\ast$Sender)
+\begin{DoxyCompactList}\small\item\em Обрабатывает нажатие по элементу меню \char`\"{}Справка\char`\"{}. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_a4b77eaf706e8386bc8d79ec547efc8b9}{T\+Form1}} (T\+Component $\ast$Owner)
+\begin{DoxyCompactList}\small\item\em Массив изображений трех шариков. \end{DoxyCompactList}\item 
+void \+\_\+\+\_\+fastcall \mbox{\hyperlink{class_t_form1_af17dc2aa9ac210d89f759a1b2085c371}{Post\+Click}} (T\+Object $\ast$)
+\begin{DoxyCompactList}\small\item\em Функция для обработки клика по клетке \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_t_form1_ae50985657d69c45821acf2b7644ed0d3}{Get\+Way}} (int, int, int, int)
+\begin{DoxyCompactList}\small\item\em Вычисляет путь от первой клетки до второй \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_t_form1_a3fe2fbe8493c95efb6c0a4ecf8aa3025}{Control\+Lines}} (int, int, int)
+\begin{DoxyCompactList}\small\item\em Обрабатывает удаление шаров по всем линиям \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_t_form1_a6da89e89ddd6957ed57a973f4612213c}{Control\+Line}} (int, int, int, void($\ast$f)(int \&, int \&, int))
+\begin{DoxyCompactList}\small\item\em Удаляет шары в линии с цветом \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_ab5f2c61b9af8bb6976bb8613461667e4}{Game\+Over}} ()
+\begin{DoxyCompactList}\small\item\em Функция окончания игры \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_a81c2f22a0a5f46bc6ea8b9a2499332b6}{Burst\+Balls}} ()
+\begin{DoxyCompactList}\small\item\em Обрабатывает удаление всех шариков из {\ttfamily \mbox{\hyperlink{class_t_form1_a6372b9a6854164954f758bffe80fd3b6}{T\+Form1\+::\+\_\+burst}}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_t_form1_a223fe1c052b9bd730c63a260e4406d14}{Put\+Balls}} ()
+\begin{DoxyCompactList}\small\item\em Распологает три шарика на поле \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_a76290f45298506ea698bf0e3df6f0a24}{Set\+Ball}} (int, int, int, bool=false)
+\begin{DoxyCompactList}\small\item\em Устанавливает шарик в указанную позицию \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_acdeda0de5584193e51bde583c58e8d64}{Put\+Ball}} (int)
+\begin{DoxyCompactList}\small\item\em Выбирает клетку для расположения нового щарика \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_af6451c8e55a0960f0f8548083c1a5bc0}\label{class_t_form1_af6451c8e55a0960f0f8548083c1a5bc0}} 
+void \mbox{\hyperlink{class_t_form1_af6451c8e55a0960f0f8548083c1a5bc0}{Init\+Next\+Ball\+Imgs}} ()
+\begin{DoxyCompactList}\small\item\em Инициализирует массив трех шариков \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_a4df0122b20d54b07a31495559fbd0224}{Save\+Game}} (string)
+\begin{DoxyCompactList}\small\item\em Сохраняет текущую конфигурацию игры \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_ab121b8296f3a692f03f6a09b6641da75}{Gen\+Next\+Balls}} ()
+\begin{DoxyCompactList}\small\item\em Генерирует очередные три шарика \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_t_form1_ae38450ee0aa7e5677a92d02d592de695}{Check\+File}} (string)
+\begin{DoxyCompactList}\small\item\em Проверяет существование файла \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_a19e32ba815c94caecce2e7e1ec68d44e}{Show\+Message\+By\+File}} (string, string)
+\begin{DoxyCompactList}\small\item\em Выводит информацию из файла в Message\+Box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_a9f13563f8657a9608abbf347ff93b6ce}{Delete\+Ball}} (int, int)
+\begin{DoxyCompactList}\small\item\em Удаляет шарик с координатами {\ttfamily i},j. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_form1_ab15a10e3ac4d2091124135a1ac11275d}{Load\+Game}} (string)
+\begin{DoxyCompactList}\small\item\em Загружает игру \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_form1_ae5f599a254886b72c91f3885aad9e31d}\label{class_t_form1_ae5f599a254886b72c91f3885aad9e31d}} 
+\mbox{\hyperlink{class_cell}{Cell}} $\ast$ \mbox{\hyperlink{class_t_form1_ae5f599a254886b72c91f3885aad9e31d}{\+\_\+active\+Cell}}
+\begin{DoxyCompactList}\small\item\em Массив клеток. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_ac9f22c1648e179b226667297286dd63d}\label{class_t_form1_ac9f22c1648e179b226667297286dd63d}} 
+vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $\ast$ $>$ \mbox{\hyperlink{class_t_form1_ac9f22c1648e179b226667297286dd63d}{\+\_\+free\+Cells}}
+\begin{DoxyCompactList}\small\item\em Указатель на активную клетку. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a3ed497af26ea809073047e2b035d1a05}\label{class_t_form1_a3ed497af26ea809073047e2b035d1a05}} 
+T\+Picture $\ast$ \mbox{\hyperlink{class_t_form1_a3ed497af26ea809073047e2b035d1a05}{\+\_\+act\+Pctrs}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив свободных клеток. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_aaf0108a6427f4c9bb38834d1d1683c3a}\label{class_t_form1_aaf0108a6427f4c9bb38834d1d1683c3a}} 
+T\+Picture $\ast$ \mbox{\hyperlink{class_t_form1_aaf0108a6427f4c9bb38834d1d1683c3a}{\+\_\+ball\+Pctrs}} \mbox{[}\mbox{\hyperlink{group__c_ga172ea2fe0f9c175f7eb7a28a0988db11}{B\+A\+L\+L\+S\+C\+O\+U\+NT}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив изображений состояний клетки. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a00a8c29eee94be4668aa559ee8152172}\label{class_t_form1_a00a8c29eee94be4668aa559ee8152172}} 
+int \mbox{\hyperlink{class_t_form1_a00a8c29eee94be4668aa559ee8152172}{\+\_\+anim\+Cf\+Set\+Ball}}
+\begin{DoxyCompactList}\small\item\em Массив уникальных изображений шариков. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a968fa89296cb7c7d1bfb5cb1fbf8b660}\label{class_t_form1_a968fa89296cb7c7d1bfb5cb1fbf8b660}} 
+int \mbox{\hyperlink{class_t_form1_a968fa89296cb7c7d1bfb5cb1fbf8b660}{\+\_\+anim\+Cf\+Delete\+Ball}}
+\begin{DoxyCompactList}\small\item\em Текущий коэффициент анимации появления шариков. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a9590d600a3f622d375fb85d596dc3d3d}\label{class_t_form1_a9590d600a3f622d375fb85d596dc3d3d}} 
+int \mbox{\hyperlink{class_t_form1_a9590d600a3f622d375fb85d596dc3d3d}{\+\_\+way\+Field}} \mbox{[}9\mbox{]}\mbox{[}9\mbox{]}
+\begin{DoxyCompactList}\small\item\em Текущий коэффициент анимации удаления шариков. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a275c5185f78bf8103fec7dde77fe29e4}\label{class_t_form1_a275c5185f78bf8103fec7dde77fe29e4}} 
+int \mbox{\hyperlink{class_t_form1_a275c5185f78bf8103fec7dde77fe29e4}{\+\_\+anim\+Indx\+Ball\+Way}}
+\begin{DoxyCompactList}\small\item\em Массив для хранения пути между клетками. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a1da5f832e56795d580e9181e38219573}\label{class_t_form1_a1da5f832e56795d580e9181e38219573}} 
+int \mbox{\hyperlink{class_t_form1_a1da5f832e56795d580e9181e38219573}{\+\_\+anim\+N\+Ball\+Way}}
+\begin{DoxyCompactList}\small\item\em Индекс анимации перемещения шарика. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a5cb95725e5545ff7c147994ea10a0852}\label{class_t_form1_a5cb95725e5545ff7c147994ea10a0852}} 
+vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $\ast$ $>$ \mbox{\hyperlink{class_t_form1_a5cb95725e5545ff7c147994ea10a0852}{\+\_\+anim\+Delete\+Cells}}
+\begin{DoxyCompactList}\small\item\em Цвет шарика анимации перемещения. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a1d94b7d7962385c22ec68dc8e911738f}\label{class_t_form1_a1d94b7d7962385c22ec68dc8e911738f}} 
+vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $\ast$ $>$ \mbox{\hyperlink{class_t_form1_a1d94b7d7962385c22ec68dc8e911738f}{\+\_\+anim\+Set\+Cells}}
+\begin{DoxyCompactList}\small\item\em Вектор клеток для анимации удаления шариков. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a71be9456c7c4045493c1bcab52c5c0cb}\label{class_t_form1_a71be9456c7c4045493c1bcab52c5c0cb}} 
+vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $\ast$ $>$ \mbox{\hyperlink{class_t_form1_a71be9456c7c4045493c1bcab52c5c0cb}{\+\_\+anim\+Way}}
+\begin{DoxyCompactList}\small\item\em Вектор клеток для анимации появления шариков. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a6372b9a6854164954f758bffe80fd3b6}\label{class_t_form1_a6372b9a6854164954f758bffe80fd3b6}} 
+vector$<$ \mbox{\hyperlink{class_cell}{Cell}} $\ast$ $>$ \mbox{\hyperlink{class_t_form1_a6372b9a6854164954f758bffe80fd3b6}{\+\_\+burst}}
+\begin{DoxyCompactList}\small\item\em Вектор клеток составляющих путь шарика. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a69293de6dc1381db6677d0bbcfc590e8}\label{class_t_form1_a69293de6dc1381db6677d0bbcfc590e8}} 
+\mbox{\hyperlink{class_cell}{Cell}} $\ast$ \mbox{\hyperlink{class_t_form1_a69293de6dc1381db6677d0bbcfc590e8}{\+\_\+target\+Ball}}
+\begin{DoxyCompactList}\small\item\em Вектор клеток для обработки лопанья. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a7f53886cb5d2454e63f2d737535dea5f}\label{class_t_form1_a7f53886cb5d2454e63f2d737535dea5f}} 
+int \mbox{\hyperlink{class_t_form1_a7f53886cb5d2454e63f2d737535dea5f}{\+\_\+score}}
+\begin{DoxyCompactList}\small\item\em Выбранная клетка. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_ae0b347bb26bb6584453a62f336ced35f}\label{class_t_form1_ae0b347bb26bb6584453a62f336ced35f}} 
+int \mbox{\hyperlink{class_t_form1_ae0b347bb26bb6584453a62f336ced35f}{\+\_\+next\+Balls}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Очки пользователя. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_t_form1_a09daebda1ca63ad617da04cb7cded8b8}\label{class_t_form1_a09daebda1ca63ad617da04cb7cded8b8}} 
+T\+Image $\ast$ \mbox{\hyperlink{class_t_form1_a09daebda1ca63ad617da04cb7cded8b8}{\+\_\+next\+Balls\+Imgs}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Массив трех шариков. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_t_form1_a4b77eaf706e8386bc8d79ec547efc8b9}\label{class_t_form1_a4b77eaf706e8386bc8d79ec547efc8b9}} 
+\index{TForm1@{TForm1}!TForm1@{TForm1}}
+\index{TForm1@{TForm1}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{TForm1()}{TForm1()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+fastcall T\+Form1\+::\+T\+Form1 (\begin{DoxyParamCaption}\item[{T\+Component $\ast$}]{Owner }\end{DoxyParamCaption})}
+
+
+
+Массив изображений трех шариков. 
+
+Конструктор формы
+
+Вызывает инициализацию картинок, объектов клеток, массива следующих трех шариков 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_form1_a81c2f22a0a5f46bc6ea8b9a2499332b6}\label{class_t_form1_a81c2f22a0a5f46bc6ea8b9a2499332b6}} 
+\index{TForm1@{TForm1}!BurstBalls@{BurstBalls}}
+\index{BurstBalls@{BurstBalls}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{BurstBalls()}{BurstBalls()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Burst\+Balls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает удаление всех шариков из {\ttfamily \mbox{\hyperlink{class_t_form1_a6372b9a6854164954f758bffe80fd3b6}{T\+Form1\+::\+\_\+burst}}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект таймера\\
+\hline
+\end{DoxyParams}
+Если таймеры анимации закончили все итерации, то запускает обработку удаления шариков из массива с шариками {\ttfamily \mbox{\hyperlink{class_t_form1_a6372b9a6854164954f758bffe80fd3b6}{T\+Form1\+::\+\_\+burst}}} , которые необходимо обработать \mbox{\Hypertarget{class_t_form1_ae38450ee0aa7e5677a92d02d592de695}\label{class_t_form1_ae38450ee0aa7e5677a92d02d592de695}} 
+\index{TForm1@{TForm1}!CheckFile@{CheckFile}}
+\index{CheckFile@{CheckFile}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{CheckFile()}{CheckFile()}}
+{\footnotesize\ttfamily bool T\+Form1\+::\+Check\+File (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Проверяет существование файла 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Имя файла \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} если файл существует, {\ttfamily false} -\/ в противном случае 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_t_form1_a6da89e89ddd6957ed57a973f4612213c}\label{class_t_form1_a6da89e89ddd6957ed57a973f4612213c}} 
+\index{TForm1@{TForm1}!ControlLine@{ControlLine}}
+\index{ControlLine@{ControlLine}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{ControlLine()}{ControlLine()}}
+{\footnotesize\ttfamily int T\+Form1\+::\+Control\+Line (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{nball,  }\item[{void($\ast$)(int \&, int \&, int)}]{iter }\end{DoxyParamCaption})}
+
+
+
+Удаляет шары в линии с цветом 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & i-\/ая координата шарика \\
+\hline
+{\em j} & j-\/ая координата шарика \\
+\hline
+{\em nball} & Порядковый номер цвета шарика \\
+\hline
+{\em iter} & Функция итерации по линии проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Количество удаленных шаров
+\end{DoxyReturn}
+Обрабатывает удаление шариков в одной линии, заданной с помощью функции {\ttfamily iter()} . Если необходимое количество шариков того же цвета в линии не было найдено возвращает {\ttfamily 0} \mbox{\Hypertarget{class_t_form1_a3fe2fbe8493c95efb6c0a4ecf8aa3025}\label{class_t_form1_a3fe2fbe8493c95efb6c0a4ecf8aa3025}} 
+\index{TForm1@{TForm1}!ControlLines@{ControlLines}}
+\index{ControlLines@{ControlLines}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{ControlLines()}{ControlLines()}}
+{\footnotesize\ttfamily int T\+Form1\+::\+Control\+Lines (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{nball }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает удаление шаров по всем линиям 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & i-\/ая координата шарика \\
+\hline
+{\em j} & j-\/ая координата шарика \\
+\hline
+{\em nball} & Порядковый номер цвета шарика \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Количество удаленных шаров
+\end{DoxyReturn}
+Вызывает обработчики {\ttfamily \mbox{\hyperlink{class_t_form1_a6da89e89ddd6957ed57a973f4612213c}{Control\+Line()}}} для каждой линии в соответствии с правилами игры, суммирует и возвращает количество удаленных шаров \mbox{\Hypertarget{class_t_form1_a9f13563f8657a9608abbf347ff93b6ce}\label{class_t_form1_a9f13563f8657a9608abbf347ff93b6ce}} 
+\index{TForm1@{TForm1}!DeleteBall@{DeleteBall}}
+\index{DeleteBall@{DeleteBall}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{DeleteBall()}{DeleteBall()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Delete\+Ball (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Удаляет шарик с координатами {\ttfamily i},j. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & i-\/ая координата шарика \\
+\hline
+{\em j} & j-\/ая координата шарика \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_form1_aaf1fe38a0cc2b3e0eed5673cd2e8a667}\label{class_t_form1_aaf1fe38a0cc2b3e0eed5673cd2e8a667}} 
+\index{TForm1@{TForm1}!ExitClick@{ExitClick}}
+\index{ExitClick@{ExitClick}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{ExitClick()}{ExitClick()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Exit\+Click (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает нажатие по элементу меню \char`\"{}Выход\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект кнопки элемента меню\\
+\hline
+\end{DoxyParams}
+Запускает диалоговое окно и, если пользователь подтверждает действия, заканчивает игровой процесс и закрывает окно \mbox{\Hypertarget{class_t_form1_ab5f2c61b9af8bb6976bb8613461667e4}\label{class_t_form1_ab5f2c61b9af8bb6976bb8613461667e4}} 
+\index{TForm1@{TForm1}!GameOver@{GameOver}}
+\index{GameOver@{GameOver}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{GameOver()}{GameOver()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Функция окончания игры 
+
+Уведомляет пользователя о завершении игры и блокирует кнопки сохранения и пропуска хода \mbox{\Hypertarget{class_t_form1_ab121b8296f3a692f03f6a09b6641da75}\label{class_t_form1_ab121b8296f3a692f03f6a09b6641da75}} 
+\index{TForm1@{TForm1}!GenNextBalls@{GenNextBalls}}
+\index{GenNextBalls@{GenNextBalls}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{GenNextBalls()}{GenNextBalls()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Gen\+Next\+Balls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Генерирует очередные три шарика 
+
+Случайным образом выбирает три номера шариков, используя {\ttfamily B\+A\+L\+L\+S\+C\+O\+U\+NT} \mbox{\Hypertarget{class_t_form1_ae50985657d69c45821acf2b7644ed0d3}\label{class_t_form1_ae50985657d69c45821acf2b7644ed0d3}} 
+\index{TForm1@{TForm1}!GetWay@{GetWay}}
+\index{GetWay@{GetWay}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{GetWay()}{GetWay()}}
+{\footnotesize\ttfamily bool T\+Form1\+::\+Get\+Way (\begin{DoxyParamCaption}\item[{int}]{strt\+\_\+i,  }\item[{int}]{strt\+\_\+j,  }\item[{int}]{fnsh\+\_\+i,  }\item[{int}]{fnsh\+\_\+j }\end{DoxyParamCaption})}
+
+
+
+Вычисляет путь от первой клетки до второй 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & i-\/ая координата шарика \\
+\hline
+{\em j} & j-\/ая координата шарика \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} если путь был найден, {\ttfamily false} -\/ в противном случае
+\end{DoxyReturn}
+Вычисляет путь используя алгоритм Ли от клетки {\ttfamily strt\+\_\+i},strt\+\_\+j до клетки {\ttfamily fnsh\+\_\+i},fnsh\+\_\+j и сохраняет его в {\ttfamily this-\/$>$\+\_\+way} \mbox{\Hypertarget{class_t_form1_a693913a9b2d4be242814dbefe8d91423}\label{class_t_form1_a693913a9b2d4be242814dbefe8d91423}} 
+\index{TForm1@{TForm1}!ItemMenuHelpClick@{ItemMenuHelpClick}}
+\index{ItemMenuHelpClick@{ItemMenuHelpClick}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{ItemMenuHelpClick()}{ItemMenuHelpClick()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Item\+Menu\+Help\+Click (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает нажатие по элементу меню \char`\"{}Помощь\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект элемента меню\\
+\hline
+\end{DoxyParams}
+Использует функцию {\ttfamily Show\+Message\+By\+File} \mbox{\Hypertarget{class_t_form1_a6f7006c9eb3b1cb2cfd428c149ad90bc}\label{class_t_form1_a6f7006c9eb3b1cb2cfd428c149ad90bc}} 
+\index{TForm1@{TForm1}!ItemMenuRefClick@{ItemMenuRefClick}}
+\index{ItemMenuRefClick@{ItemMenuRefClick}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{ItemMenuRefClick()}{ItemMenuRefClick()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Item\+Menu\+Ref\+Click (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает нажатие по элементу меню \char`\"{}Справка\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект элемента меню\\
+\hline
+\end{DoxyParams}
+Использует функцию {\ttfamily Show\+Message\+By\+File} \mbox{\Hypertarget{class_t_form1_a32eb5462dbe91dadb5acc1f40649aa2a}\label{class_t_form1_a32eb5462dbe91dadb5acc1f40649aa2a}} 
+\index{TForm1@{TForm1}!ItemMenuSaveGameClick@{ItemMenuSaveGameClick}}
+\index{ItemMenuSaveGameClick@{ItemMenuSaveGameClick}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{ItemMenuSaveGameClick()}{ItemMenuSaveGameClick()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Item\+Menu\+Save\+Game\+Click (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Орабатывает нажатие по элементу меню \char`\"{}сохранение игры\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект кнопки элемента меню\\
+\hline
+\end{DoxyParams}
+Запускает диалоговое окно и, если пользователь подтверждает действия, сохраняет игру используя функцию {\ttfamily \mbox{\hyperlink{class_t_form1_a4df0122b20d54b07a31495559fbd0224}{Save\+Game()}}} \mbox{\Hypertarget{class_t_form1_ab15a10e3ac4d2091124135a1ac11275d}\label{class_t_form1_ab15a10e3ac4d2091124135a1ac11275d}} 
+\index{TForm1@{TForm1}!LoadGame@{LoadGame}}
+\index{LoadGame@{LoadGame}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{LoadGame()}{LoadGame()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Load\+Game (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Загружает игру 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Имя файла с сохраненной игрой \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_form1_a2d1111fe1c7f5121f43e8ead18d67231}\label{class_t_form1_a2d1111fe1c7f5121f43e8ead18d67231}} 
+\index{TForm1@{TForm1}!LoadGameClick@{LoadGameClick}}
+\index{LoadGameClick@{LoadGameClick}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{LoadGameClick()}{LoadGameClick()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Load\+Game\+Click (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает нажатие по элементу меню \char`\"{}Загрузка игры\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект элемента меню\\
+\hline
+\end{DoxyParams}
+Загружает игру, используя функцию {\ttfamily \mbox{\hyperlink{class_t_form1_ab15a10e3ac4d2091124135a1ac11275d}{Load\+Game()}}} \mbox{\Hypertarget{class_t_form1_a4cd479e6c020950cc09054c8653a5620}\label{class_t_form1_a4cd479e6c020950cc09054c8653a5620}} 
+\index{TForm1@{TForm1}!NewGame@{NewGame}}
+\index{NewGame@{NewGame}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{NewGame()}{NewGame()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+New\+Game (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Запускает процесс игры 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект кнопки элемента меню\\
+\hline
+\end{DoxyParams}
+Очищает старые данные и иинициализирует поля заново \mbox{\Hypertarget{class_t_form1_afc8c224b7e3c48487d5ea189cd20828d}\label{class_t_form1_afc8c224b7e3c48487d5ea189cd20828d}} 
+\index{TForm1@{TForm1}!nextStepClick@{nextStepClick}}
+\index{nextStepClick@{nextStepClick}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{nextStepClick()}{nextStepClick()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::next\+Step\+Click (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает пропуск хода 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект кнопки пропуска хода\\
+\hline
+\end{DoxyParams}
+Распологает шарик с цветом {\ttfamily ball} в позицию {\ttfamily i},j и запускает таймер анимации. \mbox{\Hypertarget{class_t_form1_af17dc2aa9ac210d89f759a1b2085c371}\label{class_t_form1_af17dc2aa9ac210d89f759a1b2085c371}} 
+\index{TForm1@{TForm1}!PostClick@{PostClick}}
+\index{PostClick@{PostClick}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{PostClick()}{PostClick()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Post\+Click (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Функция для обработки клика по клетке 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & -\/ Объект нажатой клетки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+
+\end{DoxyAuthor}
+Находит сценарий, согласно которому произошло нажатие и обрабатывает его \mbox{\Hypertarget{class_t_form1_acdeda0de5584193e51bde583c58e8d64}\label{class_t_form1_acdeda0de5584193e51bde583c58e8d64}} 
+\index{TForm1@{TForm1}!PutBall@{PutBall}}
+\index{PutBall@{PutBall}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{PutBall()}{PutBall()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Put\+Ball (\begin{DoxyParamCaption}\item[{int}]{n\+Next\+Ball }\end{DoxyParamCaption})}
+
+
+
+Выбирает клетку для расположения нового щарика 
+
+Случайно выбирает свободную клетку на поле для расположения одного из трех шариков \mbox{\Hypertarget{class_t_form1_a223fe1c052b9bd730c63a260e4406d14}\label{class_t_form1_a223fe1c052b9bd730c63a260e4406d14}} 
+\index{TForm1@{TForm1}!PutBalls@{PutBalls}}
+\index{PutBalls@{PutBalls}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{PutBalls()}{PutBalls()}}
+{\footnotesize\ttfamily bool T\+Form1\+::\+Put\+Balls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Распологает три шарика на поле 
+
+\begin{DoxyReturn}{Returns}
+Удалось ли разместить все три шарика
+\end{DoxyReturn}
+Распологает шарики с использованием функции {\ttfamily \mbox{\hyperlink{class_t_form1_acdeda0de5584193e51bde583c58e8d64}{Put\+Ball()}}} . Возвращает {\ttfamily false} если не осталось места для размещения, {\ttfamily true} -\/ в случае успеха \mbox{\Hypertarget{class_t_form1_a4df0122b20d54b07a31495559fbd0224}\label{class_t_form1_a4df0122b20d54b07a31495559fbd0224}} 
+\index{TForm1@{TForm1}!SaveGame@{SaveGame}}
+\index{SaveGame@{SaveGame}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{SaveGame()}{SaveGame()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Save\+Game (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})}
+
+
+
+Сохраняет текущую конфигурацию игры 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Имя файла для сохранения\\
+\hline
+\end{DoxyParams}
+Очищает старые данные и иинициализирует поля заново \mbox{\Hypertarget{class_t_form1_a76290f45298506ea698bf0e3df6f0a24}\label{class_t_form1_a76290f45298506ea698bf0e3df6f0a24}} 
+\index{TForm1@{TForm1}!SetBall@{SetBall}}
+\index{SetBall@{SetBall}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{SetBall()}{SetBall()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Set\+Ball (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{nball,  }\item[{bool}]{target = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Устанавливает шарик в указанную позицию 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & i-\/ая координата шарика \\
+\hline
+{\em j} & j-\/ая координата шарика \\
+\hline
+{\em nball} & Порядковый номер цвета шарика \\
+\hline
+{\em target} & Следует ли обрабатывать шарик на удаление\\
+\hline
+\end{DoxyParams}
+Распологает шарик с цветом {\ttfamily ball} в позицию {\ttfamily i},j и запускает таймер анимации. \mbox{\Hypertarget{class_t_form1_a19e32ba815c94caecce2e7e1ec68d44e}\label{class_t_form1_a19e32ba815c94caecce2e7e1ec68d44e}} 
+\index{TForm1@{TForm1}!ShowMessageByFile@{ShowMessageByFile}}
+\index{ShowMessageByFile@{ShowMessageByFile}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{ShowMessageByFile()}{ShowMessageByFile()}}
+{\footnotesize\ttfamily void T\+Form1\+::\+Show\+Message\+By\+File (\begin{DoxyParamCaption}\item[{string}]{mbname,  }\item[{string}]{fileway }\end{DoxyParamCaption})}
+
+
+
+Выводит информацию из файла в Message\+Box. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mbname} & -\/ Заголовок окна \\
+\hline
+{\em fileway} & -\/ Путь к файлу \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_form1_abc9c59c8c54a39ff8b9a8b1a8facdfde}\label{class_t_form1_abc9c59c8c54a39ff8b9a8b1a8facdfde}} 
+\index{TForm1@{TForm1}!Timer1Timer@{Timer1Timer}}
+\index{Timer1Timer@{Timer1Timer}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{Timer1Timer()}{Timer1Timer()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Timer1\+Timer (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает итерацию таймера анимации 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект таймера\\
+\hline
+\end{DoxyParams}
+Обновляет размеры шариков, находящихся в анимации появления \mbox{\Hypertarget{class_t_form1_aafd6d5e8db4a51ca57487044dcc26f2a}\label{class_t_form1_aafd6d5e8db4a51ca57487044dcc26f2a}} 
+\index{TForm1@{TForm1}!Timer2Timer@{Timer2Timer}}
+\index{Timer2Timer@{Timer2Timer}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{Timer2Timer()}{Timer2Timer()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Timer2\+Timer (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает итерацию таймера удаления шариков 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & -\/ Объект таймера\\
+\hline
+\end{DoxyParams}
+Обновляет размеры шариков, находящихся в анимации удаления \mbox{\Hypertarget{class_t_form1_a2b394f40557b5ab7ffdd22d39f11a815}\label{class_t_form1_a2b394f40557b5ab7ffdd22d39f11a815}} 
+\index{TForm1@{TForm1}!Timer3Timer@{Timer3Timer}}
+\index{Timer3Timer@{Timer3Timer}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{Timer3Timer()}{Timer3Timer()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Timer3\+Timer (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает итерацию таймера анимации очков 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект таймера\\
+\hline
+\end{DoxyParams}
+Обновляет количство очков \mbox{\Hypertarget{class_t_form1_a7e9f704b0b05bde9998d61d2663103d0}\label{class_t_form1_a7e9f704b0b05bde9998d61d2663103d0}} 
+\index{TForm1@{TForm1}!Timer4Timer@{Timer4Timer}}
+\index{Timer4Timer@{Timer4Timer}!TForm1@{TForm1}}
+\doxysubsubsection{\texorpdfstring{Timer4Timer()}{Timer4Timer()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+fastcall T\+Form1\+::\+Timer4\+Timer (\begin{DoxyParamCaption}\item[{T\+Object $\ast$}]{Sender }\end{DoxyParamCaption})}
+
+
+
+Обрабатывает итерацию таймера анимации передвижения шарика 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Sender} & Объект таймера\\
+\hline
+\end{DoxyParams}
+Обновляет размеры псевда-\/шариков, используемые для демонстрации перемещения основного шарика 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Unit1.\+h\item 
+Unit1.\+cpp\end{DoxyCompactItemize}
