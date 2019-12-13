@@ -1,2 +1,2 @@
-# univer
-This repository was created for university projects.
+# Lines
+This project implements the game "lines".
