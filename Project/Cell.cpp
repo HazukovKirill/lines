@@ -41,7 +41,10 @@ void Cell::SetActive(bool a)
 	_isActive = a;
 	_image->Picture = _actPctrs[(int)_isActive];
 }
-
+/*!
+	\brief Устанавливает шарик на клетке
+	\param ball уникальный номер шарика
+*/
 void Cell::SetBall(int ball)
 {
  _crrntBall = ball;
@@ -54,6 +57,10 @@ void Cell::SetBall(int ball)
 	int h = _ballImage->Height;
 	int w = _ballImage->Width;
 }
+/*!
+	\brief Устанавливает размер шарика на клетке
+	\param k коэффициент размера
+*/
 void Cell::SetBallSize(int k){
    //k - коэффициент, характеризующий размер шарика
     _sizeCf = k;

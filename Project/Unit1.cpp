@@ -163,6 +163,12 @@ void TForm1::InitCells()
 	}
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Конструктор формы
+
+	Вызывает инициализацию картинок, объектов клеток,
+	массива следующих трех шариков
+*/
 __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner)
 {
 	srand(time(NULL));
@@ -235,6 +241,12 @@ bool TForm1::PutBalls()
 	return true;
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Функция окончания игры
+
+	Уведомляет пользователя о завершении игры
+	и блокирует кнопки сохранения и пропуска хода
+*/
 void TForm1::GameOver()
 {
 	nextStep->Enabled = false;
@@ -268,6 +280,12 @@ void __fastcall TForm1::nextStepClick(TObject *Sender)
     PutBalls();
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Запускает процесс игры
+	\param Sender Объект кнопки элемента меню
+
+	Очищает старые данные и иинициализирует поля заново
+*/
 void __fastcall TForm1::NewGame(TObject *Sender)
 {
 	_score = 0;
@@ -286,6 +304,12 @@ void __fastcall TForm1::NewGame(TObject *Sender)
 	ItemMenuSaveGame->Enabled = true;
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Сохраняет текущую конфигурацию игры
+	\param filename Имя файла для сохранения
+
+	Очищает старые данные и иинициализирует поля заново
+*/
 void TForm1::SaveGame(string filename)
 {
 	ofstream fout;
@@ -301,6 +325,13 @@ void TForm1::SaveGame(string filename)
 	fout.close();
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Орабатывает нажатие по элементу меню "сохранение игры"
+	\param Sender Объект кнопки элемента меню
+
+	Запускает диалоговое окно и, если пользователь подтверждает
+	действия, сохраняет игру используя функцию \c SaveGame()
+*/
 void __fastcall TForm1::ItemMenuSaveGameClick(TObject *Sender)
 {
 	//Спросить не хочет ли он сохранить текущую игру
@@ -343,6 +374,13 @@ void __fastcall TForm1::ItemMenuSaveGameClick(TObject *Sender)
 	);
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает нажатие по элементу меню "Выход"
+	\param Sender  Объект кнопки элемента меню
+
+	Запускает диалоговое окно и, если пользователь подтверждает
+	действия, заканчивает игровой процесс и закрывает окно
+*/
 void __fastcall TForm1::ExitClick(TObject *Sender)
 {
 	int Answer = Application->MessageBox(
@@ -380,11 +418,23 @@ void TForm1::ShowMessageByFile(string mbname, string fileway)
 	 );
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает нажатие по элементу меню "Помощь"
+	\param Sender Объект элемента меню
+
+	Использует функцию \c ShowMessageByFile
+*/
 void __fastcall TForm1::ItemMenuHelpClick(TObject *Sender)
 {
 	ShowMessageByFile("Помощь", WAYTOHELP);
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает нажатие по элементу меню "Справка"
+	\param Sender Объект элемента меню
+
+	Использует функцию \c ShowMessageByFile
+*/
 void __fastcall TForm1::ItemMenuRefClick(TObject *Sender)
 {
 	ShowMessageByFile("Справка", WAYTOREF);
@@ -455,6 +505,14 @@ void __fastcall TForm1::Timer2Timer(TObject *Sender)
 	BurstBalls();
 }
 //---------------------------------------------------------------------------
+/*!
+	\brief Обрабатывает удаление всех шариков из \c TForm1::_burst
+	\param Sender Объект таймера
+
+	Если таймеры анимации закончили все итерации, то
+	запускает обработку удаления шариков из массива с
+	шариками \c TForm1::_burst , которые необходимо обработать
+*/
 void TForm1::BurstBalls()
 {
 	if(Timer1->Enabled || Timer2->Enabled || Timer4->Enabled)

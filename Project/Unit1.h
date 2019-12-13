@@ -18,14 +18,23 @@
 #include <string>
 #include "Cell.h"
 #include <algorithm>
+/// Размер длины и ширины клетки
 #define CELLSIZE 68
+/// Отступ между клетками по x
 #define OFFSETX 12
+/// Отступ между клетками по y
 #define OFFSETY 11
+/// Количество уникальных цветов щариков
 #define BALLSCOUNT 7
+/// Путь до изображения с активной клеткой
 #define activeCellWay "resources/activeCell.bmp"
+/// Путь до изображения с неактивной клеткой
 #define cellWay "resources/Cell.bmp"
+/// Путь до файла с изображением шарика
 #define ballWay "resources/Ball.bmp"
+/// Путь до файла с информацией о игре.
 #define WAYTOHELP "help.txt"
+/// Путь до информации о разработчике
 #define WAYTOREF "ref.txt"
 using namespace std;
 //---------------------------------------------------------------------------
