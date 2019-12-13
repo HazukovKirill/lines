@@ -93,9 +93,11 @@ object Form1: TForm1
       object ItemMenuSaveGame: TMenuItem
         Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1080#1075#1088#1091
         Enabled = False
+        OnClick = ItemMenuSaveGameClick
       end
       object N5: TMenuItem
         Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1080#1075#1088#1091
+        OnClick = LoadGameClick
       end
     end
     object N6: TMenuItem
