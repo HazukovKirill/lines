@@ -2,7 +2,7 @@
 
 #pragma hdrstop
 
-#include "Cell.h"
+#include "./Cell.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
@@ -30,7 +30,7 @@ Cell::Cell(TImage* img, int i, int j, int offx, int offy)
 	_ballImage->Top = img->Top + offy;
 	_ballImage->Enabled = false;
 	_ballImage->Transparent = true;
-	_ballImage->Stretch = true;
+	_ballImage->Stretch = false;
 	_ballImage->BringToFront();
 }
 /*!
