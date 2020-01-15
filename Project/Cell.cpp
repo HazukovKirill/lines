@@ -42,7 +42,7 @@ void Cell::SetPicture(TPicture* pic)
 	this->_image->Picture = pic;
 }
 /*!
-	\brief Устанавливает массив анимаций шарика для клетки
+	\brief Устанавливает массив анимаций кубика для клетки
 	\param pics массив картинок
 */
 void Cell::LoadActPctrs(TPicture* *pics)
@@ -60,6 +60,9 @@ void Cell::LoadBallPctrs(TPicture* *balls)
 /*!
 	\brief Устанавливает активность клетки
 */
+
+// AAAAAAAAAAAAAAAAAAAAAA GIT GIT 
+
 void Cell::SetActive(bool a)
 {
 	_isActive = a;
